@@ -31,6 +31,7 @@ switch ($data->type) {
 			        'icon' => 'https://domasha.tk/img/icons/notification.png',
 			        'click_action' => 'https://domasha.tk',
 			    ],
+			    'time_to_live' => 60*60*24
 			];
 			$fields = json_encode($request_body);
 
