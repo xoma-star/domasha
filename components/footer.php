@@ -121,7 +121,7 @@
 		}, 600000);
 	});
 </script>
-<script mine="true" src="js/main.js?<?php echo time(); ?>"></script>
+<script mine="true" src="js/main.js?<?php echo strtotime(date('d.m.Y')); ?>"></script>
 <script mine="true" src="js/client.js"></script>
 <script mine="true" src="js/firebase.js"></script>
 <script mine="true" src="js/push.js"></script>
