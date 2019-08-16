@@ -74,7 +74,7 @@ $(document).ready(function(){
 	}
 	else if (!($('#pushes-toggle').is(':checked'))) {
 		setTimeout(function(){
-			show_notification('Уведомления помогут не пропустить ни одной новости (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'#pushes-toggle\').click();$(\'.notification-close\').click();">Включить</u>)');
+			show_notification('Уведомления помогут не пропустить ничего важного (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'#pushes-toggle\').click();$(\'.notification-close\').click();">Включить</u>)');
 		},5000);
 	}
 });

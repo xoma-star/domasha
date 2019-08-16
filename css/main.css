@@ -796,7 +796,7 @@ input:checked + .slider:before {
 	}
 	.notification-text{
 		position: relative;
-		top: 2px;
+		/*top: 2px;*/
 	}
 	#weather-may-rain span{
     	top: 3px;
