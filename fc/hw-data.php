@@ -27,14 +27,14 @@
 			}
 		}
 		else{
-			?><script mine="true" id="script_remove">
+			?><script id="script_remove">
 				$('.icon-close').click();
 				$('#script_remove').remove();
 			</script><?php
 		}
 	}
 	else{
-		?><script mine="true" id="script_remove">
+		?><script id="script_remove">
 			$('.icon-close').click();
 			$('#script_remove').remove();
 		</script><?php
@@ -72,7 +72,7 @@
 			}
 		</style>
 		<div id="vk_auth"></div>
-		<script mine="true" type="text/javascript">
+		<script type="text/javascript">
 		  VK.Widgets.Auth("vk_auth", {"authUrl":"login?w=<?php echo $week; ?>&d=<?php echo $day; ?>&l=<?php echo $lesson; ?>"});
 		</script>
 		<?php

@@ -44,4 +44,4 @@ function check_night(){
 	// 	$('#night-toggle-auto').parent().children('input').attr('checked', 'true');
 	// }
 }
-check_night();
+//check_night();

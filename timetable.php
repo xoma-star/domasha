@@ -38,9 +38,9 @@ for ($v=1; $v < 55; $v++) {
 				'date'=>date('d.m.Y', $first_str + $z*24*60*60),
 				'weekend'=>$weekend
 			];
-			for ($i=0; $i < count($timetable->response[$z]); $i++) { 
-				$arr['response']['days'][$z]['subjects'][$i] = ['name'=>'','hw'=>'','docs'=>[],'images'=>[]];
-			}
+			// for ($i=0; $i < count($timetable->response[$z]); $i++) { 
+			// 	$arr['response']['days'][$z]['subjects'][$i] = ['name'=>'','hw'=>'','docs'=>[],'images'=>[]];
+			// }
 		}
 		$week_data = $arr;
 		file_put_contents('hw/'.$v.'.txt', json_encode($week_data));

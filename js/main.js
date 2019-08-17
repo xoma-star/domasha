@@ -7,7 +7,7 @@ function load_lesson(w,d,l,p){
 	$.ajax({
 		type: 'GET',
 		url: 'fc/hw-data.php',
-		data: {'d':d,'w':w,'l':l, 'user':user},
+		data: {'d':d,'w':w,'l':l},
 		success: function(data){
 			console.log('Получена информация об уроке (неделя '+w+', день '+d+', урок '+l+')');
 			$('.overlay').animate({top:0},100);
@@ -25,7 +25,7 @@ function load_day(w,d,p){
 	$.ajax({
 		type: 'GET',
 		url: 'fc/day-data.php',
-		data: {'d':d,'w':w, 'user':user},
+		data: {'d':d,'w':w},
 		success: function(data){
 			console.log('Получена информация о дне (неделя '+w+', день '+d+')');
 			$('.overlay').animate({top:0},100);

@@ -385,7 +385,7 @@ img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost
 	float: left;
 	margin-right: 10px;
 }
-#weather-may-rain, #current-online, #traffic-junks span{
+#weather-may-rain, #current-online, #traffic-junks, #bad-hosting span{
     position: relative;
     top: 1px;
     font-weight: 700;

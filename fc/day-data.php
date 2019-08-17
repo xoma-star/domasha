@@ -19,14 +19,14 @@
 			$subjects = json_decode(file_get_contents('../subjects.txt'));
 		}
 		else{
-			?><script mine="true" id="script_remove">
+			?><script id="script_remove">
 				$('.icon-close').click();
 				$('#script_remove').remove();
 			</script><?php
 		}
 	}
 	else{
-		?><script mine="true" id="script_remove">
+		?><script id="script_remove">
 			$('.icon-close').click();
 			$('#script_remove').remove();
 		</script><?php
@@ -72,7 +72,7 @@
 			}
 		</style>
 		<div id="vk_auth"></div>
-		<script mine="true" type="text/javascript">
+		<script type="text/javascript">
 		  VK.Widgets.Auth("vk_auth", {"authUrl":"login?w=<?php echo $week; ?>&d=<?php echo $day; ?>"});
 		</script>
 		<?php
@@ -81,31 +81,38 @@
 ?>
 <div class="hw-data-content">
 	<?php
-	for ($i=0; $i < count($week_data->response->days[$day]->subjects); $i++) {
-		$lesson_data = $week_data->response->days[$day]->subjects[$i];
-		if (empty($lesson_data->name)) {
-			$lesson_name = $timetable->response[$day][$i];
-		}
-		else{
-			$lesson_name = $lesson_data->name;
-		}
-		?>
-		<div class="btn-group">
-			<button type="button" id="subject-cur-<?php echo $i; ?>" class="btn btn-primary" style="margin-right: 0;"><?php echo mb_ucfirst($lesson_name); ?></button>
-			<div class="btn-group" role="group">
-				<button id="dropdown-subject-<?php echo $i; ?>" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>
-				<div class="dropdown-menu" lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>">
-					<?php
-					for ($z=0; $z < count($subjects->subjects); $z++) { 
-						?>
-						<span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span>
+	if (count($week_data->response->days[$day]->subjects) > 0) {
+		for ($i=0; $i < count($week_data->response->days[$day]->subjects); $i++) {
+			$lesson_data = $week_data->response->days[$day]->subjects[$i];
+			if (empty($lesson_data->name)) {
+				$lesson_name = $timetable->response[$day][$i];
+			}
+			else{
+				$lesson_name = $lesson_data->name;
+			}
+			?>
+			<div class="btn-group">
+				<button type="button" id="subject-cur-<?php echo $i; ?>" class="btn btn-primary" style="margin-right: 0;"><?php echo mb_ucfirst($lesson_name); ?></button>
+				<div class="btn-group" role="group">
+					<button id="dropdown-subject-<?php echo $i; ?>" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>
+					<div class="dropdown-menu" lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>">
 						<?php
-					}
-					?>
+						for ($z=0; $z < count($subjects->subjects); $z++) { 
+							?>
+							<span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span>
+							<?php
+						}
+						?>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="clear-fix" style="margin: 10px 0;"></div>
+			<div class="clear-fix" style="margin: 10px 0;"></div>
+			<?php
+		}
+	}
+	else{
+		?>
+		<label>Нет расписания</label><div class="clear-fix"></div>
 		<?php
 	}
 	?>

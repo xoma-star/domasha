@@ -4,7 +4,7 @@
 	<div class="right notification-close"></div>
 </div>
 <div class="to-top"></div>
-<script mine="true" type="text/javascript">
+<script type="text/javascript">
   if (typeof(VK) == 'undefined') {
 	<?php if($_GET['bad'] != 1){ ?>
 	window.location = '/badbrowser.php?bad=1';
@@ -15,7 +15,7 @@
   });
 </script>
 </body>
-<script mine="true">
+<script>
 		function get_tables(w,url,scroll){
 		if (w > 0) {}
 		else{
@@ -121,12 +121,12 @@
 		}, 600000);
 	});
 </script>
-<script mine="true" src="js/main.js?<?php echo strtotime(date('d.m.Y')); ?>"></script>
-<script mine="true" src="js/client.js"></script>
-<script mine="true" src="js/firebase.js"></script>
-<script mine="true" src="js/push.js"></script>
-<script mine="true" src="upup.js"></script>
-<script mine="true">
+<script src="js/main.js?<?php echo strtotime(date('d.m.Y')); ?>"></script>
+<script src="js/client.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/push.js"></script>
+<script src="upup.js"></script>
+<script>
 	var client = new ClientJS();
 	var user = new Object();
 	//user.canvas = client.getCanvasPrint();

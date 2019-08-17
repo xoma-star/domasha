@@ -4,7 +4,7 @@
 <head>
 	<?php if($_GET['bad'] != 1){ ?>
 	<noscript><meta http-equiv="refresh" content="0; URL=badbrowser.php?bad=1"></noscript>
-	<script mine="true">if(!navigator.cookieEnabled) {window.location = 'badbrowser.php?bad=1'}</script>
+	<script>if(!navigator.cookieEnabled) {window.location = 'badbrowser.php?bad=1'}</script>
 	<?php } ?>
 	<title>Домаша</title>
 	<meta charset="utf-8">
@@ -21,11 +21,11 @@
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css?<?php echo strtotime(date('d.m.Y')); ?>">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<script mine="true" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script mine="true" src="js/cookie.js"></script>
-	<script mine="true" src="js/night.js"></script>
-	<script mine="true" src="https://vk.com/js/api/openapi.js?162" type="text/javascript"></script>
-	<script mine="true">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="js/cookie.js"></script>
+	<script src="js/night.js"></script>
+	<script src="https://vk.com/js/api/openapi.js?162" type="text/javascript"></script>
+	<script>
 		function loader_show(){
 			$('.loader').show();
 		}

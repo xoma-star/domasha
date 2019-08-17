@@ -126,7 +126,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="copyright">
+	<div class="copyright" style="display: none;">
 		<a target="_blank" href="https://000webhost.com"><div class="copyright-logo logo-000webhost"></div></a>
 		<a target="_blank" href="https://flaticon.com"><div class="copyright-logo logo-flaticon"></div></a>
 		<a target="_blank" href="https://openweathermap.org"><div class="copyright-logo logo-openweather"></div></a>

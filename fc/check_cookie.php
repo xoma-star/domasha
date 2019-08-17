@@ -12,7 +12,7 @@
 		if ($hash_c != $_COOKIE['hash']) {
 			setcookie('uid', $uid, -1);
 			setcookie('hash', $hash_c, -1);
-			header('Location: https://domasha.tk');
+			header('Location: index.php');
 		}
 	}
 ?>
