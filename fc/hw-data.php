@@ -73,7 +73,7 @@
 		</style>
 		<div id="vk_auth"></div>
 		<script type="text/javascript">
-		  VK.Widgets.Auth("vk_auth", {"authUrl":"login?w=<?php echo $week; ?>&d=<?php echo $day; ?>&l=<?php echo $lesson; ?>"});
+		  VK.Widgets.Auth("vk_auth", {"authUrl":"login.php?w=<?php echo $week; ?>&d=<?php echo $day; ?>&l=<?php echo $lesson; ?>"});
 		</script>
 		<?php
 	}

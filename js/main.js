@@ -63,20 +63,31 @@ function check_weather(){
 		}
     });
 }
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min;
+}
 
 //при загрузке документа
 //уведомления
 $(document).ready(function(){
-	if (typeof(Cookies.get('uid')) == 'undefined') {
-		setTimeout(function(){
-			show_notification('Войди в аккаунт, чтобы получить больше возможностей (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'.user-bar\').click();$(\'.notification-close\').click();">Войти</u>)');
-		},5000);
-	}
-	else if (!($('#pushes-toggle').is(':checked'))) {
-		setTimeout(function(){
-			show_notification('Уведомления помогут не пропустить ничего важного (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'#pushes-toggle\').click();$(\'.notification-close\').click();">Включить</u>)');
-		},5000);
-	}
+	var chance = getRandomInt(0,1);
+	//if (chance > 0) {
+		if (typeof(Cookies.get('uid')) == 'undefined') {
+			setTimeout(function(){
+				show_notification('Войди в аккаунт, чтобы получить больше возможностей (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'.user-bar\').click();$(\'.notification-close\').click();">Войти</u>)');
+			},5000);
+		}
+		else if (!($('#pushes-toggle').is(':checked')) && getRandomInt(0,1) > 0) {
+			setTimeout(function(){
+				show_notification('Уведомления помогут не пропустить ничего важного (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'#pushes-toggle\').click();$(\'.notification-close\').click();">Включить</u>)');
+			},5000);
+		}
+		else if (getRandomInt(0,2) > 0){
+			setTimeout(function(){
+				show_notification('Каждый месяц необходимо 120 Р. на хостинг для сайта. (<a href="https://yasobe.ru/na/domasha" target="_blank"><u style="cursor: pointer;" onclick="$(\'.notification-close\').click();">Поддержать</u></a>)');
+			},5000);
+		}
+	//}
 });
 //удаление банера хостинга
 $(document).ready(function(){
@@ -231,6 +242,7 @@ $(document).on('click', '.day-name', function(){
 });
 //нажал на предмет из выпадающего списка (поменял предмет) day-data
 $(document).on('click', '.change-subjects', function(){
+	loader_show();
 	var l = $(this).parent().attr('lesson');
 	var w = $(this).parent().attr('week');
 	var d = $(this).parent().attr('day');
@@ -248,6 +260,7 @@ $(document).on('click', '.change-subjects', function(){
 });
 //нажал на предмет из выпадающего списка (поменял предмет) hw-data
 $(document).on('click', '.change-subject', function(){
+	loader_show();
 	var l = $(this).parent().attr('lesson');
 	var w = $(this).parent().attr('week');
 	var d = $(this).parent().attr('day');
@@ -361,7 +374,7 @@ $('.user-bar').click(function(){
 		$(this).html(
 		'<div id="vk_auth"></div>'+
 		'<script mine="true" type="text/javascript">'+
-		  'VK.Widgets.Auth("vk_auth", {"authUrl":"login?w='+params.w+'"});'+
+		  'VK.Widgets.Auth("vk_auth", {"authUrl":"login.php?w='+params.w+'"});'+
 		'</script>');
 	}
 });

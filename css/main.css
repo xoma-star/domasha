@@ -4,9 +4,17 @@ html, body{
 	margin: 0;
 	padding: 0;
 	background-color: #edf3f7;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-clip: border-box;
+	background-size: cover;
 	color: #343745;
 	transition: 0.1s;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.bg-summer-10{
+	background-image: url('../img/backgrounds/summer/morning/1.png');
 }
 a:visited{
 	color: inherit;

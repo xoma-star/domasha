@@ -172,4 +172,5 @@
 </div>
 <script mine="true" src="js/main.js" type="text/javascript"></script>
 </body>
+<script>loader_show()</script>
 </html>

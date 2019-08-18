@@ -23,13 +23,20 @@ switch ($data->type) {
 			$YOUR_API_KEY = 'AAAA8ZbMEsk:APA91bGKhQW-sLsi45Av9VlWvIEJVuF_1J9Ftrt0k5M638Rq1XaXGxSibIOSkzpl4awFZCRHzGpo_r0sGJDlWVkVim7bebnRhoUYqlcWfJoh99DXw3lTkT82ZE8tIbt2k2BO6N8hcl1v';
 			$YOUR_TOKEN_ID = $tokens->response[$i];
 
+			$message = explode('~', $data->object->text)[0];
+			$link = explode('~', $data->object->text)[1];
+
+			if (empty($link)) {
+				$link = 'https://domasha.tk';
+			}
+
 			$request_body = [
 			    'to' => $YOUR_TOKEN_ID,
 			    'data' => [
 			        'title' => 'Очень важное уведомление!!',
-			        'body' => $data->object->text,
+			        'body' => $message,
 			        'icon' => 'https://domasha.tk/img/icons/notification.png',
-			        'click_action' => 'https://domasha.tk',
+			        'click_action' => $link,
 			    ],
 			    'time_to_live' => 60*60*24
 			];

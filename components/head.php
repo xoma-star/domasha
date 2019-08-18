@@ -47,9 +47,11 @@
 	<div class="right-menu block">
 		<div class="icon-close" id="hide-menu-right"></div>
 		<ul>
-			<a href="index.php"><li>Главная</li></a>
+			<a href="https://domasha.tk"><li>Главная</li></a>
 			<div class="clear-fix"></div>
-			<a href="https://vk.com/domasha_bot"><li>Блог</li></a>
+			<a target="_blank" href="https://vk.com/domasha_bot"><li>Блог</li></a>
+			<div class="clear-fix"></div>
+			<a target="_blank" href="https://yasobe.ru/na/domasha"><li>Копилка</li></a>
 			<div class="clear-fix"></div>
 		<!-- 	<a href="index.php"><li>Бот TG</li></a>
 			<div class="clear-fix"></div> -->

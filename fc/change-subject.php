@@ -17,12 +17,18 @@
 				if (file_exists('../hw/'.$week.'.txt')) {
 					$week_data = json_decode(file_get_contents('../hw/'.$week.'.txt'));
 					include 'log.php';
-					loger('subject',$name,$week_data->response->days[$day]->subjects[$lesson]->name);
-					if ($lesson >= count($week_data->response->days[$day]->subjects)) {
-						$week_data->response->days[$day]->subjects[$lesson] = (object)['name'=>$name,'hw'=>'','docs'=>[],'images'=>[]];
+					if ($name == 'удалить') {
+						loger('subject-removed','',$week_data->response->days[$day]->subjects[$lesson]);
+						array_splice($week_data->response->days[$day]->subjects, $lesson, 1);
 					}
 					else{
-						$week_data->response->days[$day]->subjects[$lesson]->name = $name;
+						loger('subject',$name,$week_data->response->days[$day]->subjects[$lesson]->name);
+						if ($lesson >= count($week_data->response->days[$day]->subjects)) {
+							$week_data->response->days[$day]->subjects[$lesson] = (object)['name'=>$name,'hw'=>'','docs'=>[],'images'=>[]];
+						}
+						else{
+							$week_data->response->days[$day]->subjects[$lesson]->name = $name;
+						}
 					}
 					file_put_contents('../hw/'.$week.'.txt', json_encode($week_data));
 					echo mb_ucfirst($name);

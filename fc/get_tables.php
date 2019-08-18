@@ -34,7 +34,7 @@
 	$week_data = json_decode(file_get_contents('../hw/'.$week.'.txt'));
 	$timetable = json_decode(file_get_contents('../timetable.txt'));
 
-	$sun_data = json_decode(file_get_contents('get_sun_data.php'));
+	$sun_data = json_decode(file_get_contents('https://domasha.tk/fc/get_sun_data.php'));
 
 	//include 'log.php';
 	//$_POST['user'] = $_GET['user'];
@@ -66,7 +66,7 @@
 						if ($k == 0) {
 							if ($week_data->response->days[$i]->subjects[$z]->name != $timetable->response[$i][$z]) {
 								$k++;
-								echo "<script id=\"script_remove\">$('[day-id=".$i."]').children('.notes').append('<div class=\"note\">Замены в расписании</div>');$('#script_remove').remove()</script>";
+								//echo "<script id=\"script_remove\">$('[day-id=".$i."]').children('.notes').append('<div class=\"note\">Замены в расписании</div>');$('#script_remove').remove()</script>";
 							}
 							else{
 								$name = $timetable->response[$i][$z];
