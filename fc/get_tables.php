@@ -107,6 +107,11 @@
 		$k=0;
 	}
 ?>
+<a href="https://fozzy.com/aff.php?aff=16137" target="_blank" style="text-decoration: none;" id="promo">
+	<div class="block table-wrap">
+		<h1 id="fozzy-promo-text">Используй промокод DOMASHA и получи скидку 10%</h1>
+		<div id="fozzy-promo"></div>
+	</div>
 <script>
 	var params = window
 	.location

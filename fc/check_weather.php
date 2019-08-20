@@ -11,7 +11,7 @@
 	$q = [$thunders, $drizzles, $rains];
 	$conds = ['возможна гроза', 'возможен небольшой дождь', 'возможен дождь'];
 	for ($i=0; $i < 3; $i++) {
-		if (in_array($weather_data->list[0]->weather[0]->id, $q[$i]) && $weather_data->list[0]->rain->{'3h'} > 0.5) {
+		if (in_array($weather_data->list[0]->weather[0]->id, $q[$i])) {
 			$response = $conds[$i];
 		}
 	}

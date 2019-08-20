@@ -32,7 +32,7 @@
 		if (w >= max_w) {
 			w = max_w;
 		}
-		loader_show();
+		//loader_show();
 		$.ajax({
 			type: 'GET',
 			url: 'fc/get_tables.php',

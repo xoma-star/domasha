@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css?<?php echo strtotime(date('d.m.Y')); ?>">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="js/jquery.js"></script>
 	<script src="js/cookie.js"></script>
 	<script src="js/night.js"></script>
 	<script src="https://vk.com/js/api/openapi.js?162" type="text/javascript"></script>

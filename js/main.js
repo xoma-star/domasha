@@ -1,6 +1,6 @@
 //функции
 function load_lesson(w,d,l,p){
-	loader_show();
+	//loader_show();
 	if (p) {
 		history.pushState({'w': w, 'd':d, 'l':l}, null, '?w='+w+'&d='+d+'&l='+l);
 	}
@@ -18,7 +18,7 @@ function load_lesson(w,d,l,p){
     });
 }
 function load_day(w,d,p){
-	loader_show();
+	//loader_show();
 	if (p) {
 		history.pushState({'w': w, 'd':d}, null, '?w='+w+'&d='+d);
 	}
@@ -82,7 +82,7 @@ $(document).ready(function(){
 				show_notification('Уведомления помогут не пропустить ничего важного (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'#pushes-toggle\').click();$(\'.notification-close\').click();">Включить</u>)');
 			},5000);
 		}
-		else if (getRandomInt(0,2) > 0){
+		else if (getRandomInt(0,2) > 1){
 			setTimeout(function(){
 				show_notification('Каждый месяц необходимо 120 Р. на хостинг для сайта. (<a href="https://yasobe.ru/na/domasha" target="_blank"><u style="cursor: pointer;" onclick="$(\'.notification-close\').click();">Поддержать</u></a>)');
 			},5000);
@@ -374,7 +374,7 @@ $('.user-bar').click(function(){
 		$(this).html(
 		'<div id="vk_auth"></div>'+
 		'<script mine="true" type="text/javascript">'+
-		  'VK.Widgets.Auth("vk_auth", {"authUrl":"login.php?w='+params.w+'"});'+
+		  'VK.Widgets.Auth("vk_auth", {"authUrl":"login?w='+params.w+'"});'+
 		'</script>');
 	}
 });
