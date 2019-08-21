@@ -16,15 +16,6 @@
 			<div class="clear-fix"></div>
 		</div>
 	</div>
-<!-- 	<div class="widget-wrap">
-		<div class="block" id="current-online">
-			<span>В сети: 10</span>
-		</div>
-		<div class="block" id="traffic-junks">
-			<div class="traffic-icon traffic-low"></div>
-			<span>3</span>
-		</div>
-	</div> -->
 	<div id="tables" preloaded="false">
 		<div class="block table-wrap">
 			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">Пидарас, 42 asdsa</span></h1>

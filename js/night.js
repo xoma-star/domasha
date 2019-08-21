@@ -3,7 +3,7 @@ function check_night(){
 	var sunrise = $('#sun-night').attr('sunrise');
 	var date = new Date();
 	var hours = date.getHours();
-	var now = + new Date()/1000+2*60*60;
+	var now = + new Date()/1000+0*60*60;
 	if (Cookies.get('night') == 1) {
 		$('#night-toggle-auto').parent().parent().parent().show('fast');
 		if (Cookies.get('night-auto') == 1) {

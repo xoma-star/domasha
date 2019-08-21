@@ -274,6 +274,7 @@ img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost
 	margin: 0;
 	padding: 7px 0 4px 10px;
 	cursor: pointer;
+	display: inline-block;
 }
 .table-wrap .day-name img{
     width: 30px;

@@ -57,7 +57,6 @@
 			<button class="btn btn-primary" id="calendar-switch">Календарь</button>
 			<a class="right" id="next-w" href="?w="><h4><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">прндцщая вы</span></h4></a>
 			<div class="clear-fix"></div>
-			<?php include 'components/calendar.php'; ?>
 		</div>
 	</div>
 	<div id="tables" preloaded="false">
@@ -70,27 +69,27 @@
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 			</table>
 		</div>
@@ -103,27 +102,27 @@
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 			</table>
 		</div>
@@ -136,33 +135,34 @@
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
 					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img src="img/icons/more.svg" class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
 				</tr>
 			</table>
 		</div>
 	</div>
 </div>
 <script mine="true" src="js/main.js" type="text/javascript"></script>
+<script src="js/night.js"></script>
 <script>loader_show()</script>
 </body>
 </html>

@@ -255,6 +255,9 @@ $(document).on('click', '.change-subjects', function(){
 			$('#subject-cur-'+l).html(data);
 			$('#dropdown-subject-'+l).click();
 			get_tables(w, 'none', false);
+			if (data == 'Удалить') {
+				load_day(w,d,false);
+			}
 		}
     });
 });
@@ -273,6 +276,9 @@ $(document).on('click', '.change-subject', function(){
 			$('#subject-cur').html(data);
 			get_tables(w, 'none', false);
 			$('#dropdown-subject').click();
+			if (data == 'Удалить') {
+				$('#close-overlay').click();
+			}
 		}
     });
 });
