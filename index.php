@@ -18,101 +18,200 @@
 	</div>
 	<div id="tables" preloaded="false">
 		<div class="block table-wrap">
-			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">Пидарас, 42 asdsa</span></h1>
+			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">----, -- ------</span></h1>
 			<table>
 				<tr class="table-header table-row">
 					<th class="subject-name-td">Предмет</th>
 					<th>Домашнее задание</th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------------------</span></th>
 					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">----------------</span></th>
 					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">---------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">------</span><img class="row-more right" width="20"></th>
 				</tr>
 			</table>
 		</div>
 		<div class="block table-wrap">
-			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">Пидарас, 42 asdsa</span></h1>
+			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">----, -- ------</span></h1>
 			<table>
 				<tr class="table-header table-row">
 					<th class="subject-name-td">Предмет</th>
 					<th>Домашнее задание</th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------------------</span></th>
 					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">----------------</span></th>
 					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">---------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">------</span><img class="row-more right" width="20"></th>
 				</tr>
 			</table>
 		</div>
 		<div class="block table-wrap">
-			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">Пидарас, 42 asdsa</span></h1>
+			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">----, -- ------</span></h1>
 			<table>
 				<tr class="table-header table-row">
 					<th class="subject-name-td">Предмет</th>
 					<th>Домашнее задание</th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">еееdddеее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------------------</span></th>
 					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">----------------</span></th>
 					<th><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее боооdasdasоойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">---------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------</span><img class="row-more right" width="20"></th>
 				</tr>
 				<tr class="table-row">
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">математика</span></th>
-					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">ееееее бооооойй</span><img class="row-more right" width="20"></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">------</span><img class="row-more right" width="20"></th>
+				</tr>
+			</table>
+		</div>
+		<div class="block table-wrap">
+			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">----, -- ------</span></h1>
+			<table>
+				<tr class="table-header table-row">
+					<th class="subject-name-td">Предмет</th>
+					<th>Домашнее задание</th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------------------</span></th>
+					<th><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">----------------</span></th>
+					<th><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">---------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">------</span><img class="row-more right" width="20"></th>
+				</tr>
+			</table>
+		</div>
+		<div class="block table-wrap">
+			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">----, -- ------</span></h1>
+			<table>
+				<tr class="table-header table-row">
+					<th class="subject-name-td">Предмет</th>
+					<th>Домашнее задание</th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------------------</span></th>
+					<th><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">----------------</span></th>
+					<th><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">---------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">------</span><img class="row-more right" width="20"></th>
+				</tr>
+			</table>
+		</div>
+		<div class="block table-wrap">
+			<h1 class="day-name"><span style="background-color: #686a73; border-radius: 20px; color: #686a73;">----, -- ------</span></h1>
+			<table>
+				<tr class="table-header table-row">
+					<th class="subject-name-td">Предмет</th>
+					<th>Домашнее задание</th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------------------</span></th>
+					<th><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">----------------</span></th>
+					<th><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">---------------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">--------------</span><img class="row-more right" width="20"></th>
+				</tr>
+				<tr class="table-row">
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">-----------</span></th>
+					<th><span style="background-color: #afafaf; border-radius: 10px; color: #afafaf;">------</span><img class="row-more right" width="20"></th>
 				</tr>
 			</table>
 		</div>
