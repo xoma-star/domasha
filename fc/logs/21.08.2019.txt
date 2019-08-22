@@ -1,1 +1,0 @@
-{"response":[{"time":1566365160,"type":"get_hw_data","week":"34","day":"1","lesson":"0","from":"","to":"","ip":"127.0.0.1","user_data":null,"uid":null},{"time":1566365173,"type":"get_day_data","week":"34","day":"0","lesson":null,"from":"","to":"","ip":"127.0.0.1","user_data":null,"uid":null}]}

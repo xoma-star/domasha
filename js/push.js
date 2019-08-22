@@ -77,17 +77,17 @@ if (
     });
 
 } else {
-    if (!('Notification' in window)) {
-        showError('Notification not supported');
-    } else if (!('serviceWorker' in navigator)) {
-        showError('ServiceWorker not supported');
-    } else if (!('localStorage' in window)) {
-        showError('LocalStorage not supported');
-    } else if (!('fetch' in window)) {
-        showError('fetch not supported');
-    } else if (!('postMessage' in window)) {
-        showError('postMessage not supported');
-    }
+    // if (!('Notification' in window)) {
+    //     showError('Notification not supported');
+    // } else if (!('serviceWorker' in navigator)) {
+    //     showError('ServiceWorker not supported');
+    // } else if (!('localStorage' in window)) {
+    //     showError('LocalStorage not supported');
+    // } else if (!('fetch' in window)) {
+    //     showError('fetch not supported');
+    // } else if (!('postMessage' in window)) {
+    //     showError('postMessage not supported');
+    // }
 
     console.warn('This browser does not support desktop notification.');
     console.log('Is HTTPS', window.location.protocol === 'https:');
@@ -96,6 +96,7 @@ if (
     console.log('Support LocalStorage', 'localStorage' in window);
     console.log('Support fetch', 'fetch' in window);
     console.log('Support postMessage', 'postMessage' in window);
+    $('#pushes-toggle').parent().parent().parent().hide();
 }
 
 

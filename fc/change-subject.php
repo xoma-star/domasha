@@ -12,7 +12,7 @@
 		$day = $_POST['d'];
 		$lesson = $_POST['l'];
 		$subjects = json_decode(file_get_contents('../subjects.txt'));
-		if (in_array($name, $subjects->subjects)) {
+		if (in_array($name, $subjects->subjects) && $lesson < 7) {
 			if (is_numeric($week) && is_numeric($day) && is_numeric($lesson)) {
 				if (file_exists('../hw/'.$week.'.txt')) {
 					$week_data = json_decode(file_get_contents('../hw/'.$week.'.txt'));

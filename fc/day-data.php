@@ -91,22 +91,25 @@
 				$lesson_name = $lesson_data->name;
 			}
 			?>
-			<div class="btn-group">
-				<button type="button" id="subject-cur-<?php echo $i; ?>" class="btn btn-primary" style="margin-right: 0;"><?php echo mb_ucfirst($lesson_name); ?></button>
-				<div class="btn-group" role="group">
-					<button id="dropdown-subject-<?php echo $i; ?>" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>
-					<div class="dropdown-menu" lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>">
-						<?php
-						for ($z=0; $z < count($subjects->subjects); $z++) { 
-							?>
-							<span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span>
+			<div lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>" id="subject-<?php echo $i; ?>">
+				<div class="btn-group">
+					<button type="button" id="subject-cur-<?php echo $i; ?>" class="btn btn-primary" style="margin-right: 0;"><?php echo mb_ucfirst($lesson_name); ?></button>
+					<div class="btn-group" role="group">
+						<button id="dropdown-subject-<?php echo $i; ?>" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>
+						<div class="dropdown-menu" lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>">
 							<?php
-						}
-						?>
+							for ($z=0; $z < count($subjects->subjects); $z++) { 
+								?>
+								<span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span>
+								<?php
+							}
+							?>
+						</div>
 					</div>
 				</div>
+				<input class="form-control" id="subject-aud-<?php echo $i; ?>" aud-change value="<?php echo $lesson_data->aud; ?>" style="width: 50px;display: inline;padding: 0.1em 10px;position: relative;top: -3px;" placeholder="Ауд.">
+				<div class="clear-fix" style="margin: 10px 0;"></div>
 			</div>
-			<div class="clear-fix" style="margin: 10px 0;"></div>
 			<?php
 		}
 	}
@@ -154,8 +157,29 @@
 	});
 	$('#subject-add').click(function(){
 		var blocks = $('.dropdown-menu').length;
-		var text = '<div class="btn-group"><button type="button" id="subject-cur-'+blocks+'" class="btn btn-primary" style="margin-right: 0;">Предмет</button><div class="btn-group" role="group"><button id="dropdown-subject-'+blocks+'" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button><div class="dropdown-menu" lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>"><?php for ($z=0; $z < count($subjects->subjects); $z++) { ?><span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span><?php } ?></div></div></div><div class="clear-fix" style="margin: 10px 0;"></div>';
-		$('#subject-add').before(text);
+		if (blocks < 8) {
+			//var text = '<div class="btn-group"><button type="button" id="subject-cur-'+blocks+'" class="btn btn-primary" style="margin-right: 0;">Предмет</button><div class="btn-group" role="group"><button id="dropdown-subject-'+blocks+'" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button><div class="dropdown-menu" lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>"><?php for ($z=0; $z < count($subjects->subjects); $z++) { ?><span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span><?php } ?></div></div></div><div class="clear-fix" style="margin: 10px 0;"></div>';
+			var text = '<div lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>" id="subject-'+blocks+'">'+
+				'<div class="btn-group">'+
+					'<button type="button" id="subject-cur-'+blocks+'" class="btn btn-primary" style="margin-right: 0;">Название</button>'+
+					'<div class="btn-group" role="group">'+
+						'<button id="dropdown-subject-'+blocks+'" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>'+
+						'<div class="dropdown-menu" lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>">'+
+							<?php
+							for ($z=0; $z < count($subjects->subjects); $z++) { 
+								?>
+								'<span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span>'+
+								<?php
+							}
+							?>
+						'</div>'+
+					'</div>'+
+				'</div>'+
+				'<input class="form-control" id="subject-aud-'+blocks+'" aud-change value="" style="width: 50px;display: inline;padding: 0.1em 10px;position: relative;top: -3px;" placeholder="Ауд.">'+
+				'<div class="clear-fix" style="margin: 10px 0;"></div>'+
+			'</div>';
+			$('#subject-add').before(text);
+		}
 	});
 	<?php	
 }

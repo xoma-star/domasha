@@ -1,1 +1,0 @@
-{"response":[{"time":1566103868,"type":"get_day_data","week":"33","day":"0","lesson":null,"from":"","to":"","ip":"127.0.0.1","user_data":null,"uid":null}]}

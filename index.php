@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="widget-wrap">
-		<div class="block" id="weather-may-rain">
+		<div class="block block-notification" id="weather-may-rain">
 			<img src="img/icons/drop.svg">
 			<span></span>
 			<div class="clear-fix"></div>

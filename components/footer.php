@@ -141,6 +141,7 @@
 	//user.canvas = client.getCanvasPrint();
 	user.browser = client.getBrowser();
 	user.browserVersion = client.getBrowserVersion();
+	user.browserMajor = client.getBrowserMajorVersion();
 	user.OS = client.getOS();
 	user.osVersion = client.getOSVersion();
 	//user.screenPrint = client.getScreenPrint();

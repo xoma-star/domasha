@@ -312,7 +312,22 @@ img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost
 	word-break: break-word;
 }
 .table-wrap .subject-name-td{
-	width: 120px;
+	/*width: 120px;*/
+}
+.table-wrap .subject-time-td{
+	width: 75px;
+	text-align: center;
+}
+.table-wrap .subject-data-td{
+	width: 25px;
+}
+.table-wrap .subject-aud-td{
+	width: 45px;
+	text-align: center;
+}
+.subject-aud-td img, .subject-time-td img{
+	margin: 2px 0 -2px;
+	width: 18px;
 }
 .table-wrap .includes{
 	margin-left: 5px;
@@ -383,18 +398,21 @@ img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost
 	text-align: center;
 }
 #weather-may-rain{
+	display: none;
+}
+.block-notification{
 	width: 970px;
 	padding: 15px;
 	display: none;
 	text-align: left;
 }
-#weather-may-rain img{
+.block-notification img{
 	width: 24px;
 	height: 24px;
 	float: left;
 	margin-right: 10px;
 }
-#weather-may-rain, #current-online, #traffic-junks, #bad-hosting span{
+.block-notification, #current-online, #traffic-junks, #bad-hosting span{
     position: relative;
     top: 1px;
     font-weight: 700;
@@ -775,7 +793,7 @@ input:checked + .slider:before {
 		width: 94%;
 		padding: 2%;
 	}
-	#weather-may-rain{
+	.block-notification{
 		width: 94%;
 		padding: 2%;
 	}
@@ -835,7 +853,7 @@ input:checked + .slider:before {
 		position: relative;
 		/*top: 2px;*/
 	}
-	#weather-may-rain span{
+	.block-notification span{
     	top: 3px;
 	}
 	.container-checkmark {
@@ -872,7 +890,18 @@ input:checked + .slider:before {
 	#promo{
 		display: none;
 	}
-
+	.table-wrap .subject-time-td{
+		width: 35px;
+	}
+	.table-wrap .subject-data-td{
+		width: 20px;
+	}
+	.table-wrap .subject-aud-td{
+		width: 38px;
+	}
+}
+#promo{
+	display: none;
 }
 
 .night{
