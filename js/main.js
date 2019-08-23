@@ -1,6 +1,9 @@
 //функции
 function load_lesson(w,d,l,p){
 	//loader_show();
+	if ($('#tables').attr('preloaded') == 'false') {
+		check_sundata();
+	}
 	if (p) {
 		history.pushState({'w': w, 'd':d, 'l':l}, null, '?w='+w+'&d='+d+'&l='+l);
 	}
@@ -9,6 +12,8 @@ function load_lesson(w,d,l,p){
 		url: 'fc/hw-data.php',
 		data: {'d':d,'w':w,'l':l},
 		success: function(data){
+			localStorage.setItem('last_page_type', 'lesson');
+			localStorage.setItem('last_page_data', '{"week":'+w+',"day":'+d+',"lesson":'+l+'}');
 			console.log('Получена информация об уроке (неделя '+w+', день '+d+', урок '+l+')');
 			$('.overlay').animate({top:0},100);
 			$('body').css('overflow', 'hidden');
@@ -19,6 +24,9 @@ function load_lesson(w,d,l,p){
 }
 function load_day(w,d,p){
 	//loader_show();
+	if ($('#tables').attr('preloaded') == 'false') {
+		check_sundata();
+	}
 	if (p) {
 		history.pushState({'w': w, 'd':d}, null, '?w='+w+'&d='+d);
 	}
@@ -27,6 +35,8 @@ function load_day(w,d,p){
 		url: 'fc/day-data.php',
 		data: {'d':d,'w':w},
 		success: function(data){
+			localStorage.setItem('last_page_type', 'day');
+			localStorage.setItem('last_page_data', '{"week":'+w+',"day":'+d+'}');
 			console.log('Получена информация о дне (неделя '+w+', день '+d+')');
 			$('.overlay').animate({top:0},100);
 			$('body').css('overflow', 'hidden');
@@ -60,6 +70,16 @@ function check_weather(){
 				$('#weather-may-rain').show();
 				$('#weather-may-rain').children('span').html('В ближайшие 3 часа '+data);
 			}
+		}
+    });
+}
+function check_sundata(){
+	$.ajax({
+		type: 'GET',
+		url: 'fc/get_sun_data.php',
+		success: function(data){
+			var jjj = JSON.parse(data);
+			$('#sun-night').attr('sunset', jjj.sunset).attr('sunrise', jjj.sunrise);
 		}
     });
 }
@@ -228,6 +248,8 @@ $('#close-overlay').click(function(){
 		},
 		{}
 	);
+	localStorage.setItem('last_page_type', 'week');
+	localStorage.setItem('last_page_data', '{"week":'+params.w+'}');
 	if ($('#tables').attr('preloaded') == 'false') {
 		$('#tables').attr('preloaded', 'true');
 		get_tables(params.w, '?w='+params.w, false);
@@ -237,19 +259,25 @@ $('#close-overlay').click(function(){
 	}
 });
 //смена аудитории
+var aud_cur;
+$(document).on('focusin', '[aud-change]', function(){
+	aud_cur = $(this).val();
+});
 $(document).on('focusout', '[aud-change]', function(){
-	var l = $(this).parent().attr('lesson');
-	var w = $(this).parent().attr('week');
-	var d = $(this).parent().attr('day');
-	$.ajax({
-		type: 'POST',
-		url: 'fc/change-aud.php',
-		data: {'d':d,'w':w,'l':l,'a':$(this).val(),'user':user},
-		success: function(data){
-			console.log('Изменена аудитория на '+data+' (неделя '+w+', день '+d+', урок '+l+')');
-			get_tables(w, 'none', false);
-		}
-    });
+	if ($(this).val() != aud_cur) {
+		var l = $(this).parent().attr('lesson');
+		var w = $(this).parent().attr('week');
+		var d = $(this).parent().attr('day');
+		$.ajax({
+			type: 'POST',
+			url: 'fc/change-aud.php',
+			data: {'d':d,'w':w,'l':l,'a':$(this).val(),'user':user},
+			success: function(data){
+				console.log('Изменена аудитория на '+data+' (неделя '+w+', день '+d+', урок '+l+')');
+				get_tables(w, 'none', false);
+			}
+	    });
+	}
 });
 //при наборе текста в поле задания
 $(document).on('keyup', '#hw-text', function(){

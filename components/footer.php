@@ -41,16 +41,6 @@
 			success: function(data){
 				var next_w = parseInt(w)+1;
 				var prev_w = w-1;
-				// if (w-1 <= 0) {
-				// 	w = max_w;
-				// 	next_w = 2;
-				// 	prev_w = w;
-				// }
-				// if (w == max_w) {
-				// 	w = 1;
-				// 	prev_w = max_w;
-				// 	next_w = 1;
-				// }
 				if (w == 1) {
 					prev_w = max_w;
 				}
@@ -68,6 +58,8 @@
 					$('html, body').animate({ scrollTop: dest }, 600);
 				}
 				loader_hide();
+				localStorage.setItem('last_page_type', 'week');
+				localStorage.setItem('last_page_data', '{"week":"'+w+'"}');
 				return false;
 			},
 			error: function(){
@@ -84,11 +76,7 @@
         });
 	}
 	$(document).ready(function(){
-		<?php
-		if (empty($_GET['w'])) {
-			$_GET['w'] = date('W');
-		}
-		?>
+		var this_week = <?php echo date('W'); ?>;
 			var params = window
 			.location
 			.search
@@ -102,15 +90,32 @@
 			},
 			{}
 		);
-		if (typeof(params.l) != 'undefined') {
+		if (typeof(params.l) != 'undefined' && typeof(params.d) != 'undefined' && typeof(params.w) != 'undefined') {
 			load_lesson(params.w,params.d,params.l,true);
 		}
-		else if(typeof(params.d) != 'undefined'){
+		else if(typeof(params.d) != 'undefined' && typeof(params.w) != 'undefined'){
 			load_day(params.w,params.d,true);
 		}
 		else{
-			$('#tables').attr('preloaded', 'true');
-			get_tables(<?php echo $_GET['w']; ?>,'?w=<?php echo $_GET['w']; ?>',false);
+			if (typeof(localStorage.getItem('last_page_type')) != 'undefined' && localStorage.getItem('last_page_type') != null) {
+				var last_page_data = JSON.parse(localStorage.getItem('last_page_data'));
+				if (typeof(last_page_data.lesson) != 'undefined') {
+					load_lesson(last_page_data.week,last_page_data.day,last_page_data.lesson,true);
+				}
+				else if (typeof(last_page_data.day) != 'undefined') {
+					load_day(last_page_data.week,last_page_data.day,true);
+				}
+				else if (typeof(last_page_data.week) != 'undefined') {
+					get_tables(last_page_data.week,'?w='+last_page_data.week,false);
+				}
+			}
+			else{
+				if (typeof(params.w) == 'undefined') {
+					params.w = this_week;
+				}
+				$('#tables').attr('preloaded', 'true');
+				get_tables(params.w,'?w='+params.w,false);
+			}
 		}
 		setInterval(function(){
 			var params = window
