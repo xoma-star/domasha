@@ -4,9 +4,9 @@ function check_night(){
 	var date = new Date();
 	var hours = date.getHours();
 	var now = + new Date()/1000+0*60*60;
-	if (Cookies.get('night') == 1) {
+	if (localStorage.getItem('night') == 1) {
 		$('#night-toggle-auto').parent().parent().parent().show('fast');
-		if (Cookies.get('night-auto') == 1) {
+		if (localStorage.getItem('night_a') == 1) {
 			if (sunset != 0 && sunrise != 0) {
 				if (now >= sunrise && now <= sunset) {
 					$('html,body').removeClass('night');

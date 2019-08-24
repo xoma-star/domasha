@@ -80,6 +80,7 @@ function check_sundata(){
 		success: function(data){
 			var jjj = JSON.parse(data);
 			$('#sun-night').attr('sunset', jjj.sunset).attr('sunrise', jjj.sunrise);
+			check_night();
 		}
     });
 }
@@ -397,18 +398,30 @@ $(document).on('mousemove', '.day-name', function(){
 });
 //свичер темной темы
 $('#night-toggle').change(function(){
-	if (Cookies.get('night') == 0 || typeof(Cookies.get('night')) == 'undefined') {
-		Cookies.set('night', 1, { expires: 365 });
+	// if (Cookies.get('night') == 0 || typeof(Cookies.get('night')) == 'undefined') {
+	// 	Cookies.set('night', 1, { expires: 365 });
+	// 	$('#night-toggle-auto').parent().parent().parent().show('fast');
+	// 	$('meta[name="theme-color"]').attr('content', '#171717');
+	// 	console.log('Установили темную тему');
+	// }
+	// else{
+	// 	$('meta[name="theme-color"]').attr('content', '#FFFFFF');
+	// 	Cookies.set('night', 0, { expires: 365 });
+	// 	//Cookies.set('night-auto', 0, { expires: 365 });
+	// 	$('#night-toggle-auto').parent().parent().parent().hide('fast');
+	// 	//$('#night-toggle-auto').removeAttr('checked');
+	// 	console.log('Установили светлую тему');
+	// }
+	if ($(this).is(':checked')) {
+		localStorage.setItem('night', 1);
 		$('#night-toggle-auto').parent().parent().parent().show('fast');
 		$('meta[name="theme-color"]').attr('content', '#171717');
 		console.log('Установили темную тему');
 	}
 	else{
 		$('meta[name="theme-color"]').attr('content', '#FFFFFF');
-		Cookies.set('night', 0, { expires: 365 });
-		//Cookies.set('night-auto', 0, { expires: 365 });
+		localStorage.setItem('night', 0);
 		$('#night-toggle-auto').parent().parent().parent().hide('fast');
-		//$('#night-toggle-auto').removeAttr('checked');
 		console.log('Установили светлую тему');
 	}
 	check_night();
@@ -416,16 +429,25 @@ $('#night-toggle').change(function(){
 //свичер темной темы авто
 $('#night-toggle-auto').change(function(){
 	if (Cookies.get('night') == 1) {
-		if (Cookies.get('night-auto') == 0 || typeof(Cookies.get('night-auto')) == 'undefined') {
-			Cookies.set('night-auto', 1, { expires: 365 });
-			console.log('Установили темную тему (авт.)');
-			check_night();
+		// if (Cookies.get('night-auto') == 0 || typeof(Cookies.get('night-auto')) == 'undefined') {
+		// 	Cookies.set('night-auto', 1, { expires: 365 });
+		// 	console.log('Установили темную тему (авт.)');
+		// 	check_night();
+		// }
+		// else{
+		// 	Cookies.set('night-auto', 0, { expires: 365 });
+		// 	console.log('Удалили темную тему(авт.)');
+		// 	check_night();
+		// }
+		if ($(this).is(':checked')) {
+			localStorage.setItem('night_a', 1);
+			console.log('Установили темную тему auto');
 		}
 		else{
-			Cookies.set('night-auto', 0, { expires: 365 });
-			console.log('Удалили темную тему(авт.)');
-			check_night();
+			localStorage.setItem('night_a', 0);
+			console.log('Установили светлую тему auto');
 		}
+		check_night();
 	}
 });
 //свичер синхронизации
