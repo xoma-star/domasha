@@ -292,6 +292,9 @@ img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost
 .table-wrap table th{
 	font-weight: 400;
 	padding: 10px;
+	/*text-align: left;*/
+}
+th.th-subject-name{
 	text-align: left;
 }
 .table-wrap .table-header{
@@ -309,12 +312,13 @@ img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost
 }
 .table-wrap .table-row{
 	word-break: break-word;
+	text-align: center;
 }
 .table-wrap .subject-name-td{
 	/*width: 120px;*/
 }
 .table-wrap .subject-time-td{
-	width: 75px;
+	width: 85px;
 	text-align: center;
 }
 .table-wrap .subject-data-td{
@@ -399,10 +403,13 @@ img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost
 #weather-may-rain{
 	display: none;
 }
+#weather-cold{
+	display: none;
+}
 .block-notification{
 	width: 970px;
 	padding: 15px;
-	display: none;
+	/*display: none;*/
 	text-align: left;
 	position: relative;
 }
@@ -878,7 +885,7 @@ input:checked + .slider:before {
 		display: none;
 	}
 	.table-wrap .subject-time-td{
-		width: 35px;
+		width: 40px;
 	}
 	.table-wrap .subject-data-td{
 		width: 20px;

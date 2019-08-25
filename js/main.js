@@ -66,9 +66,16 @@ function check_weather(){
 		type: 'GET',
 		url: 'fc/check_weather.php',
 		success: function(data){
-			if (data != '') {
+			var weather_data = JSON.parse(data);
+			if (weather_data.may_rain == true) {
 				$('#weather-may-rain').show();
-				$('#weather-may-rain').children('span').html('В ближайшие 3 часа '+data);
+				$('#weather-may-rain').children('span').html('В ближайшие 3 часа '+weather_data.rain);
+			}
+			var weather_today = parseInt(weather_data.weather_today);
+			var weather_tomorrow = parseInt(weather_data.weather_tomorrow);
+			if (weather_today - weather_tomorrow > 5) {
+				$('#weather-cold').show();
+				$('#weather-cold').children('span').html('Завтра похолодание ('+(weather_tomorrow)+'°C)');
 			}
 		}
     });
@@ -428,7 +435,7 @@ $('#night-toggle').change(function(){
 });
 //свичер темной темы авто
 $('#night-toggle-auto').change(function(){
-	if (Cookies.get('night') == 1) {
+	if (localStorage.getItem('night') == 1) {
 		// if (Cookies.get('night-auto') == 0 || typeof(Cookies.get('night-auto')) == 'undefined') {
 		// 	Cookies.set('night-auto', 1, { expires: 365 });
 		// 	console.log('Установили темную тему (авт.)');
