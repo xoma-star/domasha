@@ -199,6 +199,41 @@ $(document).ready(function(){
 
 
 //взаимодействие с интерфейсом
+$('#open_settings').click(function(){
+	$('#hide-menu-right').click();
+	$('.overlay').animate({top:0},100);
+	$('body').css('overflow', 'hidden');
+	var data =
+		'<div class="hw-data-header">Настройки</div>'+
+		'<div class="hw-data-content">'+
+			'<div class="menu-items">'+
+				//'<a>Темная тема<label class="switch"><input type="checkbox" id="night-toggle"><span class="slider round"></span></label></a>'+
+				'<a>Тема</a>'+
+				'<div class="theme-blocks-wrap">'+
+					'<div class="theme-block" style="background-color: #edf3f7;" id="theme-1">'+
+						'<div class="theme-block-header" style="background-color: #343a40;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #343745;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #343745;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #fff;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-image: -webkit-radial-gradient(center, circle cover, transparent 50%, #000 100%);animation: bg_blink 30s linear infinite;" id="theme-2">'+
+						'<div class="theme-block-header" style="background-color: #343a40;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #343a40;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #343a40;"></div>'+
+					'</div>'+
+				'</div>'+
+				'<div class="clear-fix"></div>'+
+				'<a style="display: none;">Вкл. ночью<label class="switch"><input type="checkbox" id="night-toggle-auto"><span class="slider round"></span></label></a>'+
+				'<div class="clear-fix"></div>'+
+				'<a>Уведомления<label class="switch"><input type="checkbox" id="pushes-toggle"><span class="slider round"></span></label></a>'+
+			'</div>'+
+		'</div>';
+	$('.overlay-content').html(data);
+	check_night();
+});
 //показать/скрыть календарь
 $('#calendar-switch').click(function(){
 	if ($('.calendar_new').css('display') == 'none') {
@@ -302,7 +337,10 @@ $('#close-overlay').click(function(){
 		get_tables(params.w, '?w='+params.w, false);
 	}
 	else{
-		history.pushState({'w': params.w}, null, '?w='+params.w);
+		console.log($('.hw-data-header').text());
+		if ($('.hw-data-header').text() != 'Настройки') {
+			history.pushState({'w': params.w}, null, '?w='+params.w);
+		}
 	}
 });
 //смена аудитории
@@ -362,16 +400,18 @@ $(document).on('keyup', '[hw-doc]', function(){
 });
 //взаимодействие со стрелочками возле урла
 window.addEventListener("popstate", function(e) {
-	if (typeof(e.state.l) != 'undefined') {
-		load_lesson(e.state.w,e.state.d,e.state.l,false);
-	}
-	else if(typeof(e.state.d) != 'undefined'){
-		load_day(e.state.w,e.state.d,false);
-	}
-	else{
-		$('.overlay').animate({top:'-100%'},100);
-		$('body').css('overflow', 'auto');
-		get_tables(e.state.w,'none',false);
+	if (e != null) {
+		if (typeof(e.state.l) != 'undefined') {
+			load_lesson(e.state.w,e.state.d,e.state.l,false);
+		}
+		else if(typeof(e.state.d) != 'undefined'){
+			load_day(e.state.w,e.state.d,false);
+		}
+		else{
+			$('.overlay').animate({top:'-100%'},100);
+			$('body').css('overflow', 'auto');
+			get_tables(e.state.w,'none',false);
+		}
 	}
 });
 //нажал на иконку в таблице которая ведет в hw-data
@@ -461,7 +501,7 @@ $(document).on('mousemove', '.day-name', function(){
 	$(this).children('img').hide();
 });
 //свичер темной темы
-$('#night-toggle').change(function(){
+$(document).on('change', '#night-toggle', function(){
 	// if (Cookies.get('night') == 0 || typeof(Cookies.get('night')) == 'undefined') {
 	// 	Cookies.set('night', 1, { expires: 365 });
 	// 	$('#night-toggle-auto').parent().parent().parent().show('fast');
@@ -490,8 +530,24 @@ $('#night-toggle').change(function(){
 	}
 	check_night();
 });
+$(document).on('click', '.theme-block', function(){
+	if ($(this).attr('id') == 'theme-2') {
+		localStorage.setItem('theme', 2);
+		$('#night-toggle-auto').parent().parent().show('fast');
+		$('meta[name="theme-color"]').attr('content', '#171717');
+		console.log('Установили темную тему');
+	}
+	else if($(this).attr('id') == 'theme-1') {
+		$('meta[name="theme-color"]').attr('content', '#FFFFFF');
+		localStorage.setItem('theme', 1);
+		$('#night-toggle-auto').parent().parent().hide('fast');
+		console.log('Установили светлую тему');
+	}
+	$('.theme-block-selected').remove();
+	check_night();
+});
 //свичер темной темы авто
-$('#night-toggle-auto').change(function(){
+$(document).on('change', '#night-toggle-auto', function(){
 	if (localStorage.getItem('night') == 1) {
 		// if (Cookies.get('night-auto') == 0 || typeof(Cookies.get('night-auto')) == 'undefined') {
 		// 	Cookies.set('night-auto', 1, { expires: 365 });

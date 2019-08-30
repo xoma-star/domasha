@@ -55,13 +55,10 @@
 			<div class="clear-fix"></div>
 			<a rel="noopener" target="_blank" href="https://yasobe.ru/na/domasha">Копилка</a>
 			<div class="clear-fix"></div>
+			<a id="open_settings">Настройки</a>
+			<div class="clear-fix"></div>
 		<!-- 	<a href="index.php"><li>Бот TG</li></a>
 			<div class="clear-fix"></div> -->
-			<a>Темная тема<label class="switch"><input type="checkbox" id="night-toggle"><span class="slider round"></span></label></a>
-			<div class="clear-fix"></div>
-			<a style="display: none;">Вкл. ночью<label class="switch"><input type="checkbox" id="night-toggle-auto"><span class="slider round"></span></label></a>
-			<div class="clear-fix"></div>
-			<a>Уведомления<label class="switch"><input type="checkbox" id="pushes-toggle"><span class="slider round"></span></label></a>
 			<div class="user-bar">
 				<?php
 				if (file_exists('users/'.$_COOKIE['uid'].'.txt')) {

@@ -36,14 +36,15 @@
 ?>
 <div class="hw-data-header">
 	<?php echo $day_names[$day].', '.date('d', strtotime($week_data->response->days[$day]->date)).' '.$month_names[date('m', strtotime($week_data->response->days[$day]->date))-1]; ?>
-	(<label class="container-checkmark">выходной
+	<br>
+	<label class="container-checkmark">выходной
 		<input id="weekend-toggler" type="checkbox" <?php
 			if ($week_data->response->days[$day]->weekend == 'true') {
 				?>checked="checked"<?php
 			}
 		?>>
 		<span class="checkmark"></span>
-	</label>)
+	</label>
 </div>
 <?php
 	if (empty($_COOKIE['uid'])) {
