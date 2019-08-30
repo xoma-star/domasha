@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<script mine="true" src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script mine="true" src="js/jquery.js" type="text/javascript"></script>
 	<script mine="true" src="https://vk.com/js/api/openapi.js?162" type="text/javascript"></script>
 	<script mine="true" src="js/cookie.js"></script>
 	<script mine="true" src="js/night.js"></script>

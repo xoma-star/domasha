@@ -133,6 +133,12 @@
     border-radius: 0.25rem;
     font-size: 0.930125rem;
 }
+.night .dropdown-menu{
+    background-color: #2f2f2f;
+}
+.night .dropdown-item{
+    color: #ccc;
+}
 .dropdown-item {
     display: block;
     width: 100%;
@@ -151,6 +157,10 @@
     color: #16181b;
     text-decoration: none;
     background-color: #f8f9fa;
+}
+.night .dropdown-item:hover{
+    background-color: #444;
+    color: #fff;
 }
 .dropdown-toggle:empty::after {
     margin-left: 0;

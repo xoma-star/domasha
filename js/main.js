@@ -71,12 +71,22 @@ function check_weather(){
 				$('#weather-may-rain').show();
 				$('#weather-may-rain').children('span').html('В ближайшие 3 часа '+weather_data.rain);
 			}
+			else{
+				$('#weather-may-rain').hide();
+			}
 			var weather_today = parseInt(weather_data.weather_today);
 			var weather_tomorrow = parseInt(weather_data.weather_tomorrow);
-			if (weather_today - weather_tomorrow > 5) {
+			if (weather_today - weather_tomorrow > 3) {
 				$('#weather-cold').show();
-				$('#weather-cold').children('span').html('Завтра похолодание ('+(weather_tomorrow)+'°C)');
+				//$('#weather-cold').children('span').html('Завтра похолодание (на '+(weather_today - weather_tomorrow)+'°C)');
+				$('#weather-cold').children('span').html('Завтра похолодание');
 			}
+			else{
+				$('#weather-cold').hide();
+			}
+		},
+		error: function(){
+			setTimeout(function(){check_weather()}, 10000);
 		}
     });
 }
@@ -143,7 +153,8 @@ $(document).ready(function(){
 	//if (chance > 0) {
 		if (typeof(Cookies.get('uid')) == 'undefined') {
 			setTimeout(function(){
-				show_notification('Войди в аккаунт, чтобы получить больше возможностей (<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'.user-bar\').click();$(\'.notification-close\').click();">Войти</u>)');
+				show_notification('Войди в аккаунт, чтобы получить больше возможностей.');
+				//(<u style="cursor: pointer;" onclick="$(\'.switch-theme\').click();$(\'.user-bar\').click();$(\'.notification-close\').click();">Войти</u>)
 			},5000);
 		}
 		else if (!($('#pushes-toggle').is(':checked')) && getRandomInt(0,1) > 0) {
@@ -199,6 +210,34 @@ $('#calendar-switch').click(function(){
 		$('#calendar-switch').text('Календарь').addClass('btn-primary').removeClass('btn-deny');
 	}
 });
+$(document).on('click', '#copy-from-prev', function(){
+	var params = window
+		.location
+		.search
+		.replace('?','')
+		.split('&')
+		.reduce(
+		function(p,e){
+		    var a = e.split('=');
+		    p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+		    return p;
+		},
+		{}
+	);
+	var w = params.w;
+	var d = params.d;
+	$.ajax({
+		type: 'POST',
+		url: 'fc/copy_past.php',
+		data: {'d':d,'w':w,'user':user},
+		success: function(data){
+			console.log('Скопировано расписание (неделя '+w+', день '+d+')');
+			get_tables(w, 'none', false);
+			//$(this).attr('disabled', 'disabled').html(data);
+			load_day(w,d,false);
+		}
+	});
+});
 //показать/скрыть выпадающий список
 $(document).on('click', '.dropdown-toggle', function(){
 	if ($(this).parent().children('.dropdown-menu').css('display') == 'none') {
@@ -232,11 +271,11 @@ $('[calendar_week]').children('th').click(function(e){
 //показать/скрыть иконку в таблице через которуб переход в daydata
 $(document).on('mousemove', 'tr', function(){
 	if (window.innerWidth > 1000) {
-		$(this).children('th').children('.row-more').show()
+		$(this).children('th').children().children('.row-more').show()
 	}
 }).on('mouseleave', 'tr', function(){
 	if (window.innerWidth > 1000) {
-		$(this).children('th').children('.row-more').hide()
+		$(this).children('th').children().children('.row-more').hide()
 	}
 });
 //закрыть оверлей(1)
@@ -287,6 +326,22 @@ $(document).on('focusout', '[aud-change]', function(){
 	    });
 	}
 });
+$(document).on('click', '.change-subject-type', function(){
+	var l = $(this).parent().attr('lesson');
+	var w = $(this).parent().attr('week');
+	var d = $(this).parent().attr('day');
+	$.ajax({
+		type: 'POST',
+		url: 'fc/change-type.php',
+		data: {'d':d,'w':w,'l':l,'a':$(this).text(),'user':user},
+		success: function(data){
+			$('#dropdown-type-'+l).click();
+			$('#subject-type-'+l).html(data);
+			console.log('Изменен тип на '+data+' (неделя '+w+', день '+d+', урок '+l+')');
+			get_tables(w, 'none', false);
+		}
+    });
+});
 //при наборе текста в поле задания
 $(document).on('keyup', '#hw-text', function(){
 	if ($(this).val() != '') {
@@ -321,16 +376,18 @@ window.addEventListener("popstate", function(e) {
 });
 //нажал на иконку в таблице которая ведет в hw-data
 $(document).on('click', '.row-more,.includes', function(){
-	var l = $(this).parent().parent().attr('lesson');
-	var d = $(this).parent().parent().parent().parent().parent().attr('day-id');
+	var l = $(this).parent().parent().parent().attr('lesson');
+	var d = $(this).parent().parent().parent().parent().parent().parent().attr('day-id');
 	var w = params.w;
 	load_lesson(w,d,l,true);
+	return false;
 });
 //нажал на иконку в таблице которая ведет в day-data
 $(document).on('click', '.day-name', function(){
 	var d = $(this).parent().attr('day-id');
 	var w = params.w;
 	load_day(w,d,true);
+	return false;
 });
 //нажал на предмет из выпадающего списка (поменял предмет) day-data
 $(document).on('click', '.change-subjects', function(){
@@ -421,14 +478,14 @@ $('#night-toggle').change(function(){
 	// }
 	if ($(this).is(':checked')) {
 		localStorage.setItem('night', 1);
-		$('#night-toggle-auto').parent().parent().parent().show('fast');
+		$('#night-toggle-auto').parent().parent().show('fast');
 		$('meta[name="theme-color"]').attr('content', '#171717');
 		console.log('Установили темную тему');
 	}
 	else{
 		$('meta[name="theme-color"]').attr('content', '#FFFFFF');
 		localStorage.setItem('night', 0);
-		$('#night-toggle-auto').parent().parent().parent().hide('fast');
+		$('#night-toggle-auto').parent().parent().hide('fast');
 		console.log('Установили светлую тему');
 	}
 	check_night();
@@ -492,7 +549,7 @@ $('.user-bar').click(function(){
 		);
 		$(this).html(
 		'<div id="vk_auth"></div>'+
-		'<script mine="true" type="text/javascript">'+
+		'<script type="text/javascript">'+
 		  'VK.Widgets.Auth("vk_auth", {"authUrl":"login?w='+params.w+'"});'+
 		'</script>');
 	}

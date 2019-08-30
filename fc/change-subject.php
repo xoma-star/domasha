@@ -24,7 +24,7 @@
 					else{
 						loger('subject',$name,$week_data->response->days[$day]->subjects[$lesson]->name);
 						if ($lesson >= count($week_data->response->days[$day]->subjects)) {
-							$week_data->response->days[$day]->subjects[$lesson] = (object)['aud'=>'???','name'=>$name,'hw'=>'','docs'=>[],'images'=>[]];
+							$week_data->response->days[$day]->subjects[$lesson] = (object)['aud'=>'','name'=>$name,'type'=>'лекция','hw'=>'','docs'=>[],'images'=>[]];
 						}
 						else{
 							$week_data->response->days[$day]->subjects[$lesson]->name = $name;

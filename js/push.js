@@ -12,7 +12,7 @@ if (
     var messaging = firebase.messaging();
 
     // already granted
-    if (Notification.permission === 'granted' && Cookies.get('disable_notifications') != 1) {
+    if (Notification.permission === 'granted' && localStorage.getItem('notifications') == 1) {
        $('#pushes-toggle').attr('checked', 'checked');
     }
 
@@ -29,7 +29,7 @@ if (
                         console.log('Token deleted');
                         setTokenSentToServer(false);
                         $.post('fc/save-push-token.php', {token: currentToken, type: "delete"});
-                        Cookies.set('disable_notifications', 1, { expires: 10000 });
+                        localStorage.setItem('notifications', 0);
                         // Once token is deleted update UI.
                     })
                     .catch(function(error) {
@@ -41,6 +41,12 @@ if (
             });
         }
     });
+
+    // setInterval(function(){
+    //     if (localStorage.getItem('notification_got') == 1) {
+    //         localStorage.setItem('notification_got', 0);
+    //     }
+    // },1000);
 
     // handle catch the notification on current page
     messaging.onMessage(function(payload) {
@@ -54,7 +60,10 @@ if (
                   // Copy data object to get parameters in the click handler
                   payload.data.data = JSON.parse(JSON.stringify(payload.data));
 
-                  registration.showNotification(payload.data.title, payload.data);
+                  //if (localStorage.getItem('notification_got') != 1) {
+                        registration.showNotification(payload.data.title, payload.data);
+                        //localStorage.setItem('notification_got', 1);
+                  //}
                 }).catch(function(error) {
                     // registration failed :(
                     showError('Не удалось зарегать sw', error);
@@ -135,12 +144,10 @@ function getToken() {
 // - subscribe/unsubscribe the token from topics
 function sendTokenToServer(currentToken) {
     if (!isTokenSentToServer(currentToken)) {
-        console.log('Sending token to server...');
+        console.log('Sent token to server');
         // send current token to server
         $.post('fc/save-push-token.php', {token: currentToken, type: "add"});
-        if (Cookies.get('disable_notifications') == 1) {
-            Cookies.remove('disable_notifications');
-        }
+        localStorage.setItem('notifications', 1);
         setTokenSentToServer(currentToken);
     } else {
         console.log('Token already sent to server so won\'t send it again unless it changes');

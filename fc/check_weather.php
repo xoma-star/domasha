@@ -24,8 +24,8 @@
 		}
 	}
 	$this_day_deg = $weather_data->list[0]->main->temp;
-	//$next_day_deg = $weather_data->list[7]->main->temp;
-	$next_day_deg = (int)(($weather_data->list[$i+3]->main->temp+$weather_data->list[$i+4]->main->temp+$weather_data->list[$i+5]->main->temp)/3);
+	$next_day_deg = $weather_data->list[8]->main->temp;
+	//$next_day_deg = (int)(($weather_data->list[$i+3]->main->temp+$weather_data->list[$i+4]->main->temp+$weather_data->list[$i+5]->main->temp)/3);
 
 	$arr = [
 		'may_rain'=>$may_rain,

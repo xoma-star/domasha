@@ -7,6 +7,7 @@
 	// header('Strict-Transport-Security: max-age=31536000; includeSubDomains; preload');
 	// header("X-Content-Type-Options: nosniff");
 	// header_remove('x-powered-by');
+	ob_start( 'ob_gzhandler' );
 	if (!empty($_COOKIE['uid'])) {
 		$hash_c = md5('7079888'.$_COOKIE['uid'].'jUhorzTpmcklflMOlli8');
 		if ($hash_c != $_COOKIE['hash']) {

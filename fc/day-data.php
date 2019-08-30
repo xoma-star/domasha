@@ -96,7 +96,7 @@
 					<button type="button" id="subject-cur-<?php echo $i; ?>" class="btn btn-primary" style="margin-right: 0;"><?php echo mb_ucfirst($lesson_name); ?></button>
 					<div class="btn-group" role="group">
 						<button id="dropdown-subject-<?php echo $i; ?>" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>
-						<div class="dropdown-menu" lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>">
+						<div class="dropdown-menu dropdown-menu-subjects" lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>">
 							<?php
 							for ($z=0; $z < count($subjects->subjects); $z++) { 
 								?>
@@ -108,6 +108,22 @@
 					</div>
 				</div>
 				<input class="form-control" id="subject-aud-<?php echo $i; ?>" aud-change value="<?php echo $lesson_data->aud; ?>" style="width: 50px;display: inline;padding: 0.1em 10px;position: relative;top: -3px;" placeholder="Ауд.">
+				<div class="btn-group">
+					<button type="button" id="subject-type-<?php echo $i; ?>" class="btn btn-primary" style="margin-right: 0;"><?php echo mb_ucfirst($lesson_data->type); ?></button>
+					<div class="btn-group" role="group">
+						<button id="dropdown-type-<?php echo $i; ?>" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>
+						<div class="dropdown-menu" lesson="<?php echo $i; ?>" day="<?php echo $day; ?>" week="<?php echo $week; ?>">
+							<?php
+							$types = ['лекция','семинар','физвоспитание','лабораторная работа'];
+							for ($z=0; $z < count($types); $z++) { 
+								?>
+								<span class="dropdown-item change-subject-type"><?php echo mb_ucfirst($types[$z]); ?></span>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+				</div>
 				<div class="clear-fix" style="margin: 10px 0;"></div>
 			</div>
 			<?php
@@ -119,7 +135,7 @@
 		<?php
 	}
 	?>
-	<button id="subject-add" class="btn btn-primary">Добавить</button>
+	<button id="subject-add" class="btn btn-primary">Добавить</button><button id="copy-from-prev" class="btn btn-primary">Скопировать пред.</button>
 	<div class="form-group" id="hw-docs" docs="<?php echo count($week_data->response->days[$day]->notes); ?>">
 		<label id="dssq">Объявления</label><div class="clear-fix"></div>
 		<?php
@@ -156,7 +172,7 @@
 		}
 	});
 	$('#subject-add').click(function(){
-		var blocks = $('.dropdown-menu').length;
+		var blocks = $('.dropdown-menu-subjects').length;
 		if (blocks < 8) {
 			//var text = '<div class="btn-group"><button type="button" id="subject-cur-'+blocks+'" class="btn btn-primary" style="margin-right: 0;">Предмет</button><div class="btn-group" role="group"><button id="dropdown-subject-'+blocks+'" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button><div class="dropdown-menu" lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>"><?php for ($z=0; $z < count($subjects->subjects); $z++) { ?><span class="dropdown-item change-subjects"><?php echo mb_ucfirst($subjects->subjects[$z]); ?></span><?php } ?></div></div></div><div class="clear-fix" style="margin: 10px 0;"></div>';
 			var text = '<div lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>" id="subject-'+blocks+'">'+
@@ -164,7 +180,7 @@
 					'<button type="button" id="subject-cur-'+blocks+'" class="btn btn-primary" style="margin-right: 0;">Название</button>'+
 					'<div class="btn-group" role="group">'+
 						'<button id="dropdown-subject-'+blocks+'" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>'+
-						'<div class="dropdown-menu" lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>">'+
+						'<div class="dropdown-menu dropdown-menu-subjects" lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>">'+
 							<?php
 							for ($z=0; $z < count($subjects->subjects); $z++) { 
 								?>
@@ -176,6 +192,22 @@
 					'</div>'+
 				'</div>'+
 				'<input class="form-control" id="subject-aud-'+blocks+'" aud-change value="" style="width: 50px;display: inline;padding: 0.1em 10px;position: relative;top: -3px;" placeholder="Ауд.">'+
+				'<div class="btn-group">'+
+					'<button type="button" id="subject-type-'+blocks+'" class="btn btn-primary" style="margin-right: 0;"><?php echo mb_ucfirst('тип'); ?></button>'+
+					'<div class="btn-group" role="group">'+
+						'<button id="dropdown-type-'+blocks+'" type="button" class="btn btn-primary dropdown-toggle primary-reverse"></button>'+
+						'<div class="dropdown-menu" lesson="'+blocks+'" day="<?php echo $day; ?>" week="<?php echo $week; ?>">'+
+							<?php
+							$types = ['лекция','семинар','физвоспитание','лабораторная работа'];
+							for ($z=0; $z < count($types); $z++) { 
+								?>
+								'<span class="dropdown-item change-subject-type"><?php echo mb_ucfirst($types[$z]); ?></span>'+
+								<?php
+							}
+							?>
+						'</div>'+
+					'</div>'+
+				'</div>'+
 				'<div class="clear-fix" style="margin: 10px 0;"></div>'+
 			'</div>';
 			$('#subject-add').before(text);
