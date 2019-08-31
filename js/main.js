@@ -58,6 +58,7 @@ function open_doc(src){
 	show_notification('Не загрузился документ? <u style="cursor: pointer;" onclick="window.open(\''+src+'\', \'_blank\')">Жми сюда</u>');
 }
 function show_notification(text){
+	$('.notification').show();
 	$('.notification').addClass('shown');
 	$('.notification-text').html(text);
 }
@@ -69,14 +70,14 @@ function check_weather(){
 			var weather_data = JSON.parse(data);
 			if (weather_data.may_rain == true) {
 				$('#weather-may-rain').show();
-				$('#weather-may-rain').children('span').html('В ближайшие 3 часа '+weather_data.rain);
+				$('#weather-may-rain').children('span').html(weather_data.rain);
 			}
 			else{
 				$('#weather-may-rain').hide();
 			}
 			var weather_today = parseInt(weather_data.weather_today);
 			var weather_tomorrow = parseInt(weather_data.weather_tomorrow);
-			if (weather_today - weather_tomorrow > 3) {
+			if (weather_today - weather_tomorrow > 4) {
 				$('#weather-cold').show();
 				//$('#weather-cold').children('span').html('Завтра похолодание (на '+(weather_today - weather_tomorrow)+'°C)');
 				$('#weather-cold').children('span').html('Завтра похолодание');
@@ -106,7 +107,7 @@ function getRandomInt(min, max) {
 }
 function show_bad_browser(){
 	var bad_browser = '<div class="widget-wrap">'+
-		'<div style="display:block;" class="block block-notification" id="weather-may-rain">'+
+		'<div style="display:block;" class="block block-notification">'+
 			'<img src="data:image/svg+xml;charset=utf-8,%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%09%20viewBox%3D%220%200%20473.931%20473.931%22%20style%3D%22enable-background%3Anew%200%200%20473.931%20473.931%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Ccircle%20style%3D%22fill%3A%23E84849%3B%22%20cx%3D%22236.966%22%20cy%3D%22236.966%22%20r%3D%22236.966%22%2F%3E%0D%0A%3Cpath%20style%3D%22fill%3A%23EDC92C%3B%22%20d%3D%22M409.266%2C333.9L246.676%2C71.853c-1.893-3.057-5.231-4.913-8.823-4.913%0D%0A%09c-3.596%2C0-6.933%2C1.86-8.827%2C4.913L65.997%2C334.618c-1.987%2C3.203-2.088%2C7.233-0.251%2C10.526c1.83%2C3.293%2C5.31%2C5.336%2C9.074%2C5.336h326.072%0D%0A%09h0.045c5.736%2C0%2C10.383-4.651%2C10.383-10.383C411.313%2C337.772%2C410.553%2C335.632%2C409.266%2C333.9z%22%2F%3E%0D%0A%3Cpath%20d%3D%22M225.819%2C242.111l-3.371-50.439c-0.632-9.83-0.943-16.887-0.943-21.167c0-5.826%2C1.527-10.372%2C4.576-13.635%0D%0A%09c3.053-3.274%2C7.079-4.902%2C12.06-4.902c6.039%2C0%2C10.08%2C2.088%2C12.112%2C6.264c2.032%2C4.18%2C3.053%2C10.204%2C3.053%2C18.058%0D%0A%09c0%2C4.636-0.247%2C9.347-0.733%2C14.11l-4.531%2C51.917c-0.49%2C6.181-1.542%2C10.918-3.162%2C14.222c-1.616%2C3.296-4.288%2C4.943-8.004%2C4.943%0D%0A%09c-3.794%2C0-6.425-1.59-7.895-4.789C227.503%2C253.504%2C226.448%2C248.64%2C225.819%2C242.111z%20M237.508%2C311.401%0D%0A%09c-4.284%2C0-8.026-1.381-11.214-4.153c-3.195-2.769-4.789-6.649-4.789-11.633c0-4.355%2C1.527-8.06%2C4.576-11.117%0D%0A%09c3.053-3.053%2C6.795-4.58%2C11.218-4.58c4.426%2C0%2C8.191%2C1.523%2C11.319%2C4.58c3.124%2C3.053%2C4.688%2C6.761%2C4.688%2C11.117%0D%0A%09c0%2C4.913-1.579%2C8.771-4.745%2C11.581C245.403%2C309.997%2C241.721%2C311.401%2C237.508%2C311.401z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A">'+
 			'<span>Браузер не поддерживается. Некоторые функции могут работать неправильно</span>'+
 			'<div class="clear-fix"></div>'+
@@ -149,6 +150,7 @@ $(document).ready(function(){
 });
 //уведомления
 $(document).ready(function(){
+	$('.notification').hide();
 	var chance = getRandomInt(0,1);
 	//if (chance > 0) {
 		if (typeof(Cookies.get('uid')) == 'undefined') {
@@ -175,7 +177,9 @@ $(document).ready(function(){
 });
 //скрытие скриптов хостинга
 $(document).ready(function(){
-	//$('script[mine!="true"]').remove();
+	if (localStorage.getItem('theme') == null) {
+		localStorage.setItem('theme',1);
+	}
 });
 //подгрузка навигации
 $(document).ready(function(){
@@ -199,6 +203,11 @@ $(document).ready(function(){
 
 
 //взаимодействие с интерфейсом
+//easter
+$('.domasha-logo').click(function(){
+	$('html,body').toggleClass('easter1');
+});
+//открыть настройки
 $('#open_settings').click(function(){
 	$('#hide-menu-right').click();
 	$('.overlay').animate({top:0},100);
@@ -209,7 +218,7 @@ $('#open_settings').click(function(){
 			'<div class="menu-items">'+
 				//'<a>Темная тема<label class="switch"><input type="checkbox" id="night-toggle"><span class="slider round"></span></label></a>'+
 				'<a>Тема</a>'+
-				'<div class="theme-blocks-wrap">'+
+				'<div class="theme-blocks-wrap" theme-type="default">'+
 					'<div class="theme-block" style="background-color: #edf3f7;" id="theme-1">'+
 						'<div class="theme-block-header" style="background-color: #343a40;"></div>'+
 						'<div class="theme-block-text1" style="background-color: #343745;"></div>'+
@@ -217,16 +226,88 @@ $('#open_settings').click(function(){
 						'<div class="theme-block-text2" style="background-color: #343745;"></div>'+
 						'<div class="theme-block-table2" style="background-color: #fff;"></div>'+
 					'</div>'+
-					'<div class="theme-block" style="background-image: -webkit-radial-gradient(center, circle cover, transparent 50%, #000 100%);animation: bg_blink 30s linear infinite;" id="theme-2">'+
+					'<div class="theme-block" style="background-color: #000;" id="theme-2">'+
 						'<div class="theme-block-header" style="background-color: #343a40;"></div>'+
 						'<div class="theme-block-text1" style="background-color: #fff;"></div>'+
 						'<div class="theme-block-table1" style="background-color: #343a40;"></div>'+
 						'<div class="theme-block-text2" style="background-color: #fff;"></div>'+
 						'<div class="theme-block-table2" style="background-color: #343a40;"></div>'+
 					'</div>'+
+					'<div class="theme-block" style="background-color: #5f4a8b;" id="theme-3">'+
+						'<div class="theme-block-header" style="background-color: #45316e;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #45316e;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #45316e;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #1b345b;" id="theme-4">'+
+						'<div class="theme-block-header" style="background-color: #0a1932;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #0a1932;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #0a1932;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #b2e0df;" id="theme-5">'+
+						'<div class="theme-block-header" style="background-color: #002828;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #002828;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #f1fffe;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #002828;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #f1fffe;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #f6ce00;" id="theme-6">'+
+						'<div class="theme-block-header" style="background-color: #603b08;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #603b08;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #faed94;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #603b08;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #faed94;"></div>'+
+					'</div>'+
 				'</div>'+
 				'<div class="clear-fix"></div>'+
-				'<a style="display: none;">Вкл. ночью<label class="switch"><input type="checkbox" id="night-toggle-auto"><span class="slider round"></span></label></a>'+
+				'<a>Вкл. ночью<label class="switch"><input type="checkbox" id="night-toggle-auto"><span class="slider round"></span></label></a>'+
+				'<div class="theme-blocks-wrap" theme-type="night">'+
+					'<div class="theme-block" style="background-color: #edf3f7;" id="theme-1">'+
+						'<div class="theme-block-header" style="background-color: #343a40;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #343745;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #343745;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #fff;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #000;" id="theme-2">'+
+						'<div class="theme-block-header" style="background-color: #343a40;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #343a40;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #343a40;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #5f4a8b;" id="theme-3">'+
+						'<div class="theme-block-header" style="background-color: #45316e;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #45316e;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #45316e;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #1b345b;" id="theme-4">'+
+						'<div class="theme-block-header" style="background-color: #0a1932;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #0a1932;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #fff;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #0a1932;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #b2e0df;" id="theme-5">'+
+						'<div class="theme-block-header" style="background-color: #002828;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #002828;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #f1fffe;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #002828;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #f1fffe;"></div>'+
+					'</div>'+
+					'<div class="theme-block" style="background-color: #f6ce00;" id="theme-6">'+
+						'<div class="theme-block-header" style="background-color: #603b08;"></div>'+
+						'<div class="theme-block-text1" style="background-color: #603b08;"></div>'+
+						'<div class="theme-block-table1" style="background-color: #faed94;"></div>'+
+						'<div class="theme-block-text2" style="background-color: #603b08;"></div>'+
+						'<div class="theme-block-table2" style="background-color: #faed94;"></div>'+
+					'</div>'+
+				'</div>'+
 				'<div class="clear-fix"></div>'+
 				'<a>Уведомления<label class="switch"><input type="checkbox" id="pushes-toggle"><span class="slider round"></span></label></a>'+
 			'</div>'+
@@ -285,6 +366,7 @@ $(document).on('click', '.dropdown-toggle', function(){
 //закрыть уведомление
 $('.notification-close').click(function(){
 	$('.notification').removeClass('shown').css('transform', 'translateY('+($('.notification').height()+20)+'px)');
+	setTimeout(function(){$('.notification').hide()},100)
 });
 //загрузка недели через навигацию
 $('#prev-w,#next-w').click(function(){
@@ -502,23 +584,10 @@ $(document).on('mousemove', '.day-name', function(){
 });
 //свичер темной темы
 $(document).on('change', '#night-toggle', function(){
-	// if (Cookies.get('night') == 0 || typeof(Cookies.get('night')) == 'undefined') {
-	// 	Cookies.set('night', 1, { expires: 365 });
-	// 	$('#night-toggle-auto').parent().parent().parent().show('fast');
-	// 	$('meta[name="theme-color"]').attr('content', '#171717');
-	// 	console.log('Установили темную тему');
-	// }
-	// else{
-	// 	$('meta[name="theme-color"]').attr('content', '#FFFFFF');
-	// 	Cookies.set('night', 0, { expires: 365 });
-	// 	//Cookies.set('night-auto', 0, { expires: 365 });
-	// 	$('#night-toggle-auto').parent().parent().parent().hide('fast');
-	// 	//$('#night-toggle-auto').removeAttr('checked');
-	// 	console.log('Установили светлую тему');
-	// }
 	if ($(this).is(':checked')) {
 		localStorage.setItem('night', 1);
 		$('#night-toggle-auto').parent().parent().show('fast');
+		$('[theme-type="night"]').show('fast');
 		$('meta[name="theme-color"]').attr('content', '#171717');
 		console.log('Установили темную тему');
 	}
@@ -526,49 +595,58 @@ $(document).on('change', '#night-toggle', function(){
 		$('meta[name="theme-color"]').attr('content', '#FFFFFF');
 		localStorage.setItem('night', 0);
 		$('#night-toggle-auto').parent().parent().hide('fast');
+		$('[theme-type="night"]').hide('fast');
 		console.log('Установили светлую тему');
 	}
 	check_night();
 });
 $(document).on('click', '.theme-block', function(){
+	if ($(this).parent().attr('theme-type') == 'night') {
+		var g = 'night_theme';
+		if ($('#night-toggle-auto').is(':checked') === false) {
+			$('#night-toggle-auto').click();
+		}
+	}
+	else{
+		var g = 'theme';
+	}
 	if ($(this).attr('id') == 'theme-2') {
-		localStorage.setItem('theme', 2);
-		$('#night-toggle-auto').parent().parent().show('fast');
-		$('meta[name="theme-color"]').attr('content', '#171717');
-		console.log('Установили темную тему');
+		localStorage.setItem(g, 2);
+		console.log('Установили тему Dark classic');
 	}
 	else if($(this).attr('id') == 'theme-1') {
-		$('meta[name="theme-color"]').attr('content', '#FFFFFF');
-		localStorage.setItem('theme', 1);
-		$('#night-toggle-auto').parent().parent().hide('fast');
-		console.log('Установили светлую тему');
+		localStorage.setItem(g, 1);
+		console.log('Установили тему Light classic');
 	}
-	$('.theme-block-selected').remove();
+	else if($(this).attr('id') == 'theme-3') {
+		localStorage.setItem(g, 3);
+		console.log('Установили тему Ultra violet');
+	}
+	else if($(this).attr('id') == 'theme-4') {
+		localStorage.setItem(g, 4);
+		console.log('Установили тему State blue');
+	}
+	else if($(this).attr('id') == 'theme-5') {
+		localStorage.setItem(g, 5);
+		console.log('Установили тему Sea foam');
+	}
+	else if($(this).attr('id') == 'theme-6') {
+		localStorage.setItem(g, 6);
+		console.log('Установили тему Banana');
+	}
 	check_night();
 });
 //свичер темной темы авто
 $(document).on('change', '#night-toggle-auto', function(){
-	if (localStorage.getItem('night') == 1) {
-		// if (Cookies.get('night-auto') == 0 || typeof(Cookies.get('night-auto')) == 'undefined') {
-		// 	Cookies.set('night-auto', 1, { expires: 365 });
-		// 	console.log('Установили темную тему (авт.)');
-		// 	check_night();
-		// }
-		// else{
-		// 	Cookies.set('night-auto', 0, { expires: 365 });
-		// 	console.log('Удалили темную тему(авт.)');
-		// 	check_night();
-		// }
-		if ($(this).is(':checked')) {
-			localStorage.setItem('night_a', 1);
-			console.log('Установили темную тему auto');
-		}
-		else{
-			localStorage.setItem('night_a', 0);
-			console.log('Установили светлую тему auto');
-		}
-		check_night();
+	if ($(this).is(':checked')) {
+		localStorage.setItem('night_a', 1);
+		console.log('Установили темную тему auto');
 	}
+	else{
+		localStorage.setItem('night_a', 0);
+		console.log('Установили светлую тему auto');
+	}
+	check_night();
 });
 //свичер синхронизации
 $('#sync-toggle').change(function(){
