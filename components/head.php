@@ -51,7 +51,7 @@
 		<table class="weather-list">
 			<tr class="weather-row-header">
 				<td class="weather-temp">
-					<span><?php
+					<span style="color: #f66049;"><?php
 					$q = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
 					echo date('j').' '.$q[date('n')-1];
 					?></span>
@@ -92,49 +92,55 @@
 				<td class="weather-condition"><img src=""><span></span></td>
 			</tr>
 		</table>
-		<table class="weather-list">
-			<tr class="weather-row-header">
-				<td class="weather-temp">
-					<span><?php
-					echo date('j',strtotime(date('j.m.Y'))+24*60*60).' '.$q[date('n',strtotime(date('j.m.Y'))+24*60*60)-1];
-					?></span>
-				</td>
-				<td class="weather-feels-like">Ощущается как</td>
-				<td class="weather-condition"></td>
-			</tr>
-			<tr class="weather-row" id="weather-morning-t">
-				<td class="weather-temp">
-					<div class="weather-temp-daytime">Утром</div>
-					<div class="weather-temp-val"></div>
-				</td>
-				<td class="weather-feels-like"></td>
-				<td class="weather-condition"><img src=""><span></span></td>
-			</tr>
-			<tr class="weather-row" id="weather-day-t">
-				<td class="weather-temp">
-					<div class="weather-temp-daytime">Днем</div>
-					<div class="weather-temp-val"></div>
-				</td>
-				<td class="weather-feels-like"></td>
-				<td class="weather-condition"><img src=""><span></span></td>
-			</tr>
-			<tr class="weather-row" id="weather-evening-t">
-				<td class="weather-temp">
-					<div class="weather-temp-daytime">Вечером</div>
-					<div class="weather-temp-val"></div>
-				</td>
-				<td class="weather-feels-like"></td>
-				<td class="weather-condition"><img src=""><span></span></td>
-			</tr>
-			<tr class="weather-row" id="weather-night-t">
-				<td class="weather-temp">
-					<div class="weather-temp-daytime">Ночью</div>
-					<div class="weather-temp-val"></div>
-				</td>
-				<td class="weather-feels-like"></td>
-				<td class="weather-condition"><img src=""><span></span></td>
-			</tr>
-		</table>
+		<?php
+			for ($i=1; $i < 7; $i++) { 
+				?>
+				<table class="weather-list">
+					<tr class="weather-row-header">
+						<td class="weather-temp">
+							<span><?php
+							echo date('j',strtotime(date('j.m.Y'))+$i*24*60*60).' '.$q[date('n',strtotime(date('j.m.Y'))+$i*24*60*60)-1];
+							?></span>
+						</td>
+						<td class="weather-feels-like">Ощущается как</td>
+						<td class="weather-condition"></td>
+					</tr>
+					<tr class="weather-row" id="weather-morning-<?php echo $i; ?>">
+						<td class="weather-temp">
+							<div class="weather-temp-daytime">Утром</div>
+							<div class="weather-temp-val"></div>
+						</td>
+						<td class="weather-feels-like"></td>
+						<td class="weather-condition"><img src=""><span></span></td>
+					</tr>
+					<tr class="weather-row" id="weather-day-<?php echo $i; ?>">
+						<td class="weather-temp">
+							<div class="weather-temp-daytime">Днем</div>
+							<div class="weather-temp-val"></div>
+						</td>
+						<td class="weather-feels-like"></td>
+						<td class="weather-condition"><img src=""><span></span></td>
+					</tr>
+					<tr class="weather-row" id="weather-evening-<?php echo $i; ?>">
+						<td class="weather-temp">
+							<div class="weather-temp-daytime">Вечером</div>
+							<div class="weather-temp-val"></div>
+						</td>
+						<td class="weather-feels-like"></td>
+						<td class="weather-condition"><img src=""><span></span></td>
+					</tr>
+					<tr class="weather-row" id="weather-night-<?php echo $i; ?>">
+						<td class="weather-temp">
+							<div class="weather-temp-daytime">Ночью</div>
+							<div class="weather-temp-val"></div>
+						</td>
+						<td class="weather-feels-like"></td>
+						<td class="weather-condition"><img src=""><span></span></td>
+					</tr>
+				</table>
+				<?php
+			}
+		?>
 	</div>
 	<div class="right-menu block">
 		<div class="icon-close" id="hide-menu-right"></div>
@@ -146,6 +152,8 @@
 			<a rel="noopener" target="_blank" href="https://yasobe.ru/na/domasha">Копилка</a>
 			<div class="clear-fix"></div>
 			<a id="open_settings">Настройки</a>
+			<div class="clear-fix"></div>
+			<a id="open_weather">Погода</a>
 			<div class="clear-fix"></div>
 		<!-- 	<a href="index.php"><li>Бот TG</li></a>
 			<div class="clear-fix"></div> -->

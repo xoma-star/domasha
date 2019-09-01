@@ -564,9 +564,9 @@ th.th-subject-name{
 	position: fixed;
 	overflow: auto;
 	transform: translateX(-630px);
-	padding: 10px 0 0 30px;
+	padding: 2% 0 4% 30px;
 	left: 0;
-	height: 100%;
+	height: 94%;
 	transition: 100ms;
 	z-index: 3;
 }
@@ -574,12 +574,11 @@ th.th-subject-name{
 	transform: translateX(0);
 }
 .left-menu .weather-list{
-	width: 80%;
+	width: 95%;
 }
 .weather-list .weather-row-header span{
     font-family: domasha-bold;
-    font-size: 3em;
-    color: #f66049;
+    font-size: 2em;
 }
 .weather-list .weather-row-header .weather-feels-like{
     position: relative;
@@ -590,6 +589,10 @@ th.th-subject-name{
 }
 .weather-row .weather-temp{
 	position: relative;
+	width: 22%;
+}
+.weather-row .weather-condition{
+	width: 50%;
 }
 .weather-row .weather-temp-daytime{
 	position: absolute;
@@ -1002,10 +1005,8 @@ input:checked + .slider:before {
 	.left-menu{
 		width: 96%;
 		transform: translateX(-100%);
-		padding: 20px 0 0 4%;
-	}
-	.left-menu .weather-list{
-		width: 95%;
+		height: 96%;
+		padding: 4% 0 4% 4%;
 	}
 	.weather-list .weather-row-header .weather-feels-like{
 	    top: 6px;

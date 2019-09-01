@@ -85,46 +85,47 @@ function check_weather(){
 			else{
 				$('#weather-cold').hide();
 			}
-			$('#weather-morning').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.morning.temp);
-			$('#weather-morning').children('.weather-feels-like').html(weather_data.weather.morning.feels_like);
-			$('#weather-morning').children('.weather-condition').children('span').html(weather_data.weather.morning.condition);
-			$('#weather-morning').children('.weather-condition').children('img').attr('src', weather_data.weather.morning.icon);
+			$('#weather-morning').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[0].morning.temp);
+			$('#weather-morning').children('.weather-feels-like').html(weather_data.weather.response[0].morning.feels_like);
+			$('#weather-morning').children('.weather-condition').children('span').html(weather_data.weather.response[0].morning.condition);
+			$('#weather-morning').children('.weather-condition').children('img').attr('src', weather_data.weather.response[0].morning.icon);
 
-			$('#weather-day').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.day.temp);
-			$('#weather-day').children('.weather-feels-like').html(weather_data.weather.day.feels_like);
-			$('#weather-day').children('.weather-condition').children('span').html(weather_data.weather.day.condition);
-			$('#weather-day').children('.weather-condition').children('img').attr('src', weather_data.weather.day.icon);
+			$('#weather-day').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[0].day.temp);
+			$('#weather-day').children('.weather-feels-like').html(weather_data.weather.response[0].day.feels_like);
+			$('#weather-day').children('.weather-condition').children('span').html(weather_data.weather.response[0].day.condition);
+			$('#weather-day').children('.weather-condition').children('img').attr('src', weather_data.weather.response[0].day.icon);
 
-			$('#weather-evening').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.evening.temp);
-			$('#weather-evening').children('.weather-feels-like').html(weather_data.weather.evening.feels_like);
-			$('#weather-evening').children('.weather-condition').children('span').html(weather_data.weather.evening.condition);
-			$('#weather-evening').children('.weather-condition').children('img').attr('src', weather_data.weather.evening.icon);
+			$('#weather-evening').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[0].evening.temp);
+			$('#weather-evening').children('.weather-feels-like').html(weather_data.weather.response[0].evening.feels_like);
+			$('#weather-evening').children('.weather-condition').children('span').html(weather_data.weather.response[0].evening.condition);
+			$('#weather-evening').children('.weather-condition').children('img').attr('src', weather_data.weather.response[0].evening.icon);
 
-			$('#weather-night').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.night.temp);
-			$('#weather-night').children('.weather-feels-like').html(weather_data.weather.night.feels_like);
-			$('#weather-night').children('.weather-condition').children('span').html(weather_data.weather.night.condition);
-			$('#weather-night').children('.weather-condition').children('img').attr('src', weather_data.weather.night.icon);
+			$('#weather-night').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[0].night.temp);
+			$('#weather-night').children('.weather-feels-like').html(weather_data.weather.response[0].night.feels_like);
+			$('#weather-night').children('.weather-condition').children('span').html(weather_data.weather.response[0].night.condition);
+			$('#weather-night').children('.weather-condition').children('img').attr('src', weather_data.weather.response[0].night.icon);
 
+			for (var i = 1; i < 7; i++) {
+				$('#weather-morning-'+i).children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[i].morning.temp);
+				$('#weather-morning-'+i).children('.weather-feels-like').html(weather_data.weather.response[i].morning.feels_like);
+				$('#weather-morning-'+i).children('.weather-condition').children('span').html(weather_data.weather.response[i].morning.condition);
+				$('#weather-morning-'+i).children('.weather-condition').children('img').attr('src', weather_data.weather.response[i].morning.icon);
 
-			$('#weather-morning-t').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather_t.morning.temp);
-			$('#weather-morning-t').children('.weather-feels-like').html(weather_data.weather_t.morning.feels_like);
-			$('#weather-morning-t').children('.weather-condition').children('span').html(weather_data.weather_t.morning.condition);
-			$('#weather-morning-t').children('.weather-condition').children('img').attr('src', weather_data.weather_t.morning.icon);
+				$('#weather-day-'+i).children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[i].day.temp);
+				$('#weather-day-'+i).children('.weather-feels-like').html(weather_data.weather.response[i].day.feels_like);
+				$('#weather-day-'+i).children('.weather-condition').children('span').html(weather_data.weather.response[i].day.condition);
+				$('#weather-day-'+i).children('.weather-condition').children('img').attr('src', weather_data.weather.response[i].day.icon);
 
-			$('#weather-day-t').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather_t.day.temp);
-			$('#weather-day-t').children('.weather-feels-like').html(weather_data.weather_t.day.feels_like);
-			$('#weather-day-t').children('.weather-condition').children('span').html(weather_data.weather_t.day.condition);
-			$('#weather-day-t').children('.weather-condition').children('img').attr('src', weather_data.weather_t.day.icon);
+				$('#weather-evening-'+i).children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[i].evening.temp);
+				$('#weather-evening-'+i).children('.weather-feels-like').html(weather_data.weather.response[i].evening.feels_like);
+				$('#weather-evening-'+i).children('.weather-condition').children('span').html(weather_data.weather.response[i].evening.condition);
+				$('#weather-evening-'+i).children('.weather-condition').children('img').attr('src', weather_data.weather.response[i].evening.icon);
 
-			$('#weather-evening-t').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather_t.evening.temp);
-			$('#weather-evening-t').children('.weather-feels-like').html(weather_data.weather_t.evening.feels_like);
-			$('#weather-evening-t').children('.weather-condition').children('span').html(weather_data.weather_t.evening.condition);
-			$('#weather-evening-t').children('.weather-condition').children('img').attr('src', weather_data.weather_t.evening.icon);
-
-			$('#weather-night-t').children('.weather-temp').children('.weather-temp-val').html(weather_data.weather_t.night.temp);
-			$('#weather-night-t').children('.weather-feels-like').html(weather_data.weather_t.night.feels_like);
-			$('#weather-night-t').children('.weather-condition').children('span').html(weather_data.weather_t.night.condition);
-			$('#weather-night-t').children('.weather-condition').children('img').attr('src', weather_data.weather_t.night.icon);
+				$('#weather-night-'+i).children('.weather-temp').children('.weather-temp-val').html(weather_data.weather.response[i].night.temp);
+				$('#weather-night-'+i).children('.weather-feels-like').html(weather_data.weather.response[i].night.feels_like);
+				$('#weather-night-'+i).children('.weather-condition').children('span').html(weather_data.weather.response[i].night.condition);
+				$('#weather-night-'+i).children('.weather-condition').children('img').attr('src', weather_data.weather.response[i].night.icon);
+			}
 		},
 		error: function(){
 			setTimeout(function(){check_weather()}, 10000);
@@ -721,6 +722,10 @@ $('.click-to-close').click(function(){
 	$('.left-menu,.right-menu').removeClass('shown');
 });
 $('#hide-menu-left').click(function(){
+	show_weather();
+});
+$('#open_weather').click(function(){
+	$('#hide-menu-right').click();
 	show_weather();
 });
 //взаимодействие с юзербаром внизу менюшки
