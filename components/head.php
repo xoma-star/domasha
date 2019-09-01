@@ -46,6 +46,96 @@
 		<div class="icon-close" id="close-overlay"></div>
 		<div class="overlay-content"></div>
 	</div>
+	<div class="left-menu block">
+		<div class="icon-close" id="hide-menu-left"></div>
+		<table class="weather-list">
+			<tr class="weather-row-header">
+				<td class="weather-temp">
+					<span><?php
+					$q = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+					echo date('j').' '.$q[date('n')-1];
+					?></span>
+				</td>
+				<td class="weather-feels-like">Ощущается как</td>
+				<td class="weather-condition"></td>
+			</tr>
+			<tr class="weather-row" id="weather-morning">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Утром</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+			<tr class="weather-row" id="weather-day">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Днем</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+			<tr class="weather-row" id="weather-evening">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Вечером</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+			<tr class="weather-row" id="weather-night">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Ночью</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+		</table>
+		<table class="weather-list">
+			<tr class="weather-row-header">
+				<td class="weather-temp">
+					<span><?php
+					echo date('j',strtotime(date('j.m.Y'))+24*60*60).' '.$q[date('n',strtotime(date('j.m.Y'))+24*60*60)-1];
+					?></span>
+				</td>
+				<td class="weather-feels-like">Ощущается как</td>
+				<td class="weather-condition"></td>
+			</tr>
+			<tr class="weather-row" id="weather-morning-t">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Утром</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+			<tr class="weather-row" id="weather-day-t">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Днем</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+			<tr class="weather-row" id="weather-evening-t">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Вечером</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+			<tr class="weather-row" id="weather-night-t">
+				<td class="weather-temp">
+					<div class="weather-temp-daytime">Ночью</div>
+					<div class="weather-temp-val"></div>
+				</td>
+				<td class="weather-feels-like"></td>
+				<td class="weather-condition"><img src=""><span></span></td>
+			</tr>
+		</table>
+	</div>
 	<div class="right-menu block">
 		<div class="icon-close" id="hide-menu-right"></div>
 		<div class="menu-items">

@@ -41,6 +41,34 @@
 // 		'удалить'
 // 	]
 // ];
-//<td class="weather-table__body-cell weather-table__body-cell_type_condition">Облачно с прояснениями</td>
 // echo json_encode($arr);
+$q = file_get_contents('https://yandex.ru/pogoda/ufa/details');
+$weather_today = str_replace('+', '', explode('</span>', explode('<span class="temp__value">', $q)[6])[0]);
+$today_weather = (object)([
+	'morning'=>(object)([
+		'temp'=>str_replace('hellip;', '...', preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<div class="weather-table__daypart">', $q)[1])[0])),
+		'feels_like'=>preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_feels-like">', $q)[1])[0]),
+		'condition'=>explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_condition">', $q)[1])[0],
+		'icon'=>explode('"/>', explode('src="', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_icon">', $q)[1])[0])[1])[0],
+	]),
+	'day'=>(object)([
+		'temp'=>str_replace('hellip;', '...', preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<div class="weather-table__daypart">', $q)[2])[0])),
+		'feels_like'=>preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_feels-like">', $q)[2])[0]),
+		'condition'=>explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_condition">', $q)[2])[0],
+		'icon'=>explode('"/>', explode('src="', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_icon">', $q)[2])[0])[1])[0],
+	]),
+	'evening'=>(object)([
+		'temp'=>str_replace('hellip;', '...', preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<div class="weather-table__daypart">', $q)[3])[0])),
+		'feels_like'=>preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_feels-like">', $q)[3])[0]),
+		'condition'=>explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_condition">', $q)[3])[0],
+		'icon'=>explode('"/>', explode('src="', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_icon">', $q)[3])[0])[1])[0],
+	]),
+	'night'=>(object)([
+		'temp'=>str_replace('hellip;', '...', preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<div class="weather-table__daypart">', $q)[4])[0])),
+		'feels_like'=>preg_replace("/[^0-9+-°]/iu", '', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_feels-like">', $q)[4])[0]),
+		'condition'=>explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_condition">', $q)[4])[0],
+		'icon'=>explode('"/>', explode('src="', explode('</td>', explode('<td class="weather-table__body-cell weather-table__body-cell_type_icon">', $q)[4])[0])[1])[0],
+	])
+]);
+print_r($today_weather);
 ?>
